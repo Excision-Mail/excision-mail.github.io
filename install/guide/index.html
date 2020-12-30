@@ -12,21 +12,21 @@
     <title>Installation Guide :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609346097" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609346097" rel="stylesheet">
-    <link href="/css/hybrid.css?1609346097" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609346097" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609346097" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609346097" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609346097" rel="stylesheet">
-    <link href="/css/theme.css?1609346097" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609346097" rel="stylesheet">
+    <link href="/css/nucleus.css?1609346206" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609346206" rel="stylesheet">
+    <link href="/css/hybrid.css?1609346206" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609346206" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609346206" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609346206" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609346206" rel="stylesheet">
+    <link href="/css/theme.css?1609346206" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609346206" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609346097" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609346206" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609346097"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609346206"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609346097"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609346097"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609346206"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609346206"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609346097"></script>
+<script type="text/javascript" src="/js/search.js?1609346206"></script>
 
     
   </div>
@@ -705,18 +705,18 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-preinstall.yml
 </code></pre></div><p>This runs the following preliminary roles (in order) for a basic setup:</p>
 <ul>
-<li><a href="roles/#pre_excision">pre-excision</a>:
+<li><a href="../roles/#pre_excision">pre-excision</a>:
 <ul>
 <li>Installs the needed packages, custom scripts and creates configuration directories.</li>
 <li>Sets up system users and groups with minimal permissions.</li>
 </ul>
 </li>
-<li><a href="roles/#base">base</a>:
+<li><a href="../roles/#base">base</a>:
 <ul>
 <li>Set up logging, cron jobs and firewall.</li>
 </ul>
 </li>
-<li><a href="roles/#nsd">nsd</a> (optional, highly recommended):
+<li><a href="../roles/#nsd">nsd</a> (optional, highly recommended):
 <ul>
 <li>Configure the DNS for all domains with nsd enabled.</li>
 </ul>
@@ -731,40 +731,40 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-install.yml
 </code></pre></div><p>The following roles are run (in order):</p>
 <ul>
-<li><a href="roles/#httpd">httpd</a>:
+<li><a href="../roles/#httpd">httpd</a>:
 <ul>
 <li>Sets up the <a href="https://man.openbsd.org/man8/httpd.8">httpd(8)</a> web server for all domains and subdomains.</li>
 </ul>
 </li>
-<li><a href="roles/#acme">acme</a>:
+<li><a href="../roles/#acme">acme</a>:
 <ul>
 <li>Creates the <em>SSL</em> certificates with <a href="https://man.openbsd.org/man1/acme-client.1">acme-client(1)</a>.</li>
 <li>Sets up the <a href="https://man.openbsd.org/man8/relayd.8">relayd(8)</a> reverse proxy.</li>
 </ul>
 </li>
-<li><a href="roles/#spamd">spamd</a> (optional):
+<li><a href="../roles/#spamd">spamd</a> (optional):
 <ul>
 <li>Sets up grey listing and tarpitting for spam protection.</li>
 </ul>
 </li>
-<li><a href="roles/#rspamd">rspamd</a>:
+<li><a href="../roles/#rspamd">rspamd</a>:
 <ul>
 <li>Gives a <em>lot</em> of spam protection setup techniques.</li>
 <li>Enables DKIM signing for outgoing mails.</li>
 </ul>
 </li>
-<li><a href="roles/#clamav">clamav</a> (optional):
+<li><a href="../roles/#clamav">clamav</a> (optional):
 <ul>
 <li>Sets up an antivirus which scans all attachments and emails.</li>
 <li><strong>WARNING</strong>: this is quite heavy and may cripple smaller servers.</li>
 </ul>
 </li>
-<li><a href="roles/#smtpd">smtpd</a>:
+<li><a href="../roles/#smtpd">smtpd</a>:
 <ul>
 <li>Finally sets up the actual OpenSMTPD MTA.</li>
 </ul>
 </li>
-<li><a href="roles/#dovecot">dovecot</a>:
+<li><a href="../roles/#dovecot">dovecot</a>:
 <ul>
 <li>Sets up the IMAP/POP3 servers.</li>
 <li>Sets up the local MDA for virtuals users.</li>
@@ -776,10 +776,10 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-extra.yml
 </code></pre></div><p>This installs and configures (in order):</p>
 <ul>
-<li><a href="roles/#php">php</a></li>
-<li><a href="roles/#postgresql">postgresql</a></li>
-<li><a href="roles/#davical">davical</a>: Calendar + contacts server</li>
-<li><a href="roles/#roundcube">roundcube</a>: Webmail server, along with a managesieve plugin for server side mail filtering.</li>
+<li><a href="../roles/#php">php</a></li>
+<li><a href="../roles/#postgresql">postgresql</a></li>
+<li><a href="../roles/#davical">davical</a>: Calendar + contacts server</li>
+<li><a href="../roles/#roundcube">roundcube</a>: Webmail server, along with a managesieve plugin for server side mail filtering.</li>
 </ul>
 
 
@@ -1112,19 +1112,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609346098"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609346098"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609346098"></script>
-    <script src="/js/jquery.sticky.js?1609346098"></script>
-    <script src="/js/featherlight.min.js?1609346098"></script>
-    <script src="/js/highlight.pack.js?1609346098"></script>
+    <script src="/js/clipboard.min.js?1609346206"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609346206"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609346206"></script>
+    <script src="/js/jquery.sticky.js?1609346206"></script>
+    <script src="/js/featherlight.min.js?1609346206"></script>
+    <script src="/js/highlight.pack.js?1609346206"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609346098"></script>
-    <script src="/js/learn.js?1609346098"></script>
-    <script src="/js/hugo-learn.js?1609346098"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609346206"></script>
+    <script src="/js/learn.js?1609346206"></script>
+    <script src="/js/hugo-learn.js?1609346206"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609346098"></script>
+            <script src="/mermaid/mermaid.js?1609346206"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
