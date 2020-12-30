@@ -24,7 +24,7 @@ A detailed description of each option is given in the vars-sample.yml file.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/install/roles/</guid>
-      <description></description>
+      <description>HTTPD </description>
     </item>
     
   </channel>
