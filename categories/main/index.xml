@@ -14,7 +14,10 @@
       <guid>/</guid>
       <description>Excision Mail Fullstack, security focused mailserver based on OpenSMTPD for OpenBSD.
 Website is still a WIP but feel free to explore and give feedback.
- Security Highlights  All connections are TLS enforced, including pop3s, imaps, smtps.  smtp and sieve are STARTTLS with enforced TLS escalation. Insecure versions of pop3 and imap are disabled for additional security.   GnuPG Web Key Service and Web Key Directory support for automatic publishing of public keys in a multi-domain server setting.</description>
+ Documentation The documentation covers various aspects of the system:
+A lot of the documentation is underwritten and not up to the desired standard.
+Any help writing it is appreciated.
+  Installation guide System Overview The excision command Backups  </description>
     </item>
     
   </channel>
