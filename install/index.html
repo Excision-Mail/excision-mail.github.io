@@ -12,21 +12,21 @@
     <title>Installation overview :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609353504" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609353504" rel="stylesheet">
-    <link href="/css/hybrid.css?1609353504" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609353504" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609353504" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609353504" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609353504" rel="stylesheet">
-    <link href="/css/theme.css?1609353504" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609353504" rel="stylesheet">
+    <link href="/css/nucleus.css?1609354380" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609354380" rel="stylesheet">
+    <link href="/css/hybrid.css?1609354380" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609354380" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609354380" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609354380" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609354380" rel="stylesheet">
+    <link href="/css/theme.css?1609354380" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609354380" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609353504" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609354380" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609353504"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609354380"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609353504"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609353504"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609354380"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609354380"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609353504"></script>
+<script type="text/javascript" src="/js/search.js?1609354380"></script>
 
     
   </div>
@@ -115,37 +115,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/install/guide/" title="Installation Guide" class="dd-item ">
-        <a href="/install/guide/">
-        Installation Guide
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
       
     </li>
   
@@ -302,6 +271,30 @@
  
   
     
+    <li data-nav-id="/backups/" title="System Backups" class="dd-item
+        
+        
+        
+        ">
+      <a href="/backups/">
+          System Backups
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
     <li data-nav-id="/guides/" title="Extra guides" class="dd-item
         
         
@@ -415,30 +408,6 @@
  
 
           
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/backups/" title="System Backups" class="dd-item
-        
-        
-        
-        ">
-      <a href="/backups/">
-          System Backups
-          
-      </a>
-      
-      
-    </li>
-  
- 
-
-          
         
     </ul>
 
@@ -509,7 +478,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#vars">Set up vars.yml</a></li>
+    <li><a href="#inventory">Set up the inventory</a></li>
+    <li><a href="#preinstall">Execute site-preinstall playbook</a></li>
+    <li><a href="#install">Execute site-install playbook</a></li>
+    <li><a href="#extras">Execute site-extras playbook (optional)</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -533,7 +511,171 @@
 
 
 
-	<p>A simple walkthrough of the installation process.</p>
+	<h2 id="overview">Overview</h2>
+<ul>
+<li><a href="#vars">Set up vars</a></li>
+<li><a href="#inventory">Set up the inventory</a></li>
+<li><a href="#preinstall">Execute site-preinstall playbook</a></li>
+<li><a href="#install">Execute site-install playbook</a></li>
+<li><a href="#extras">Execute site-extras playbook</a> (optional)</li>
+</ul>
+<h2 id="vars">Set up vars.yml</h2>
+<p>It is recommended to first start with a minimal configuration of only the necessities and then re-run the installation to enable the optional extras.</p>
+
+<div class="notices info" ><p>A detailed description of each option is given in the <a href="https://github.com/Excision-Mail/Excision-Mail/blob/master/vars-sample.yml">vars-sample.yml</a> file.</p>
+</div>
+
+<p>A minimal configuration using the optional, but highly recommended, <a href="https://man.openbsd.org/nsd.8">nsd(8)</a> setup would be similar to:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">mail.aisha.cc</span>
+<span style="color:#f92672">admin</span>: <span style="color:#ae81ff">aisha</span>
+
+<span style="color:#f92672">domains</span>:
+  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">aisha.cc</span>
+    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#f92672">enable_nsd</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">108.61.81.40</span>
+<span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">19f0:5:36b:5400:2ff:fe7f:a634</span>
+
+<span style="color:#f92672">secondary_nameservers</span>:
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">69.65.50.192</span> <span style="color:#75715e"># freedns2</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span> <span style="color:#75715e"># rest are cloudns</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
+        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.193</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
+        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:3::1</span>
+
+<span style="color:#f92672">public_nameservers</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">freedns2</span> <span style="color:#75715e"># freedns2</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">66.65.50.223</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns31</span> <span style="color:#75715e"># rest are cloudns</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns32</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns33</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns34</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns31</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1 </span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns32</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1 </span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns33</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns34</span>
+          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47 </span>
+</code></pre></div><h2 id="inventory">Set up the inventory</h2>
+<p>If you are running Ansible on the mail server, the default <code>inventory-sample.ini</code> should be enough. Just copy and rename the file to <code>inventory.ini</code> and it should work.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extraserver]</span>
+<span style="color:#a6e22e">extra ansible_connection</span><span style="color:#f92672">=</span><span style="color:#e6db74">local ansible_python_interpreter=/usr/local/bin/python3</span>
+
+<span style="color:#66d9ef">[mainserver]</span>
+<span style="color:#a6e22e">extra ansible_connection</span><span style="color:#f92672">=</span><span style="color:#e6db74">local ansible_python_interpreter=/usr/local/bin/python3</span>
+
+<span style="color:#66d9ef">[global:children]</span>
+<span style="color:#a6e22e">extraserver</span>
+<span style="color:#a6e22e">mainserver</span>
+</code></pre></div><h2 id="preinstall">Execute site-preinstall playbook</h2>
+<p>The first playbook to run is the <code>site-preinstall.yml</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-preinstall.yml
+</code></pre></div><p>This runs the following preliminary roles (in order) for a basic setup:</p>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/pre-excision">pre-excision</a>:
+<ul>
+<li>Installs the needed packages, custom scripts and creates configuration directories.</li>
+<li>Sets up system users and groups with minimal permissions.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/base">base</a>:
+<ul>
+<li>Set up logging, cron jobs and firewall.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/nsd">nsd</a> (optional, highly recommended):
+<ul>
+<li>Configure the DNS for all domains with nsd enabled.</li>
+</ul>
+</li>
+</ul>
+
+<div class="notices info" ><p>It will take about 10-15 minutes after running the <strong>site-preinstall</strong> role for the DNS changes to be in effect. Running the <strong>site-install</strong> role too soon may cause it to abort as Lets Encrypt may not be able to find the websites.</p>
+</div>
+
+<h2 id="install">Execute site-install playbook</h2>
+<p>The buld of the work is done in the <code>site-install.yml</code> playbook:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-install.yml
+</code></pre></div><p>The following roles are run (in order):</p>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/httpd">httpd</a>:
+<ul>
+<li>Sets up the <a href="https://man.openbsd.org/man8/httpd.8">httpd(8)</a> web server for all domains and subdomains.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/acme">acme</a>:
+<ul>
+<li>Creates the <em>SSL</em> certificates with <a href="https://man.openbsd.org/man1/acme-client.1">acme-client(1)</a>.</li>
+<li>Sets up the <a href="https://man.openbsd.org/man8/relayd.8">relayd(8)</a> reverse proxy.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/spamd">spamd</a> (optional):
+<ul>
+<li>Sets up grey listing and tarpitting for spam protection.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/rspamd">rspamd</a>:
+<ul>
+<li>Gives a <em>lot</em> of spam protection setup techniques.</li>
+<li>Enables DKIM signing for outgoing mails.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/clamav">clamav</a> (optional):
+<ul>
+<li>Sets up an antivirus which scans all attachments and emails.</li>
+<li><strong>WARNING</strong>: this is quite heavy and may cripple smaller servers.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/smtpd">smtpd</a>:
+<ul>
+<li>Finally sets up the actual OpenSMTPD MTA.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/dovecot">dovecot</a>:
+<ul>
+<li>Sets up the IMAP/POP3 servers.</li>
+<li>Sets up the local MDA for virtuals users.</li>
+</ul>
+</li>
+</ul>
+<h2 id="extras">Execute site-extras playbook (optional)</h2>
+<p>This enables extra functionality that is not inherently needed for an email server but has become ubiquitous for almost all email setups.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-extra.yml
+</code></pre></div><p>This installs and configures (in order):</p>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/php">php</a></li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/postgresql">postgresql</a></li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/davical">davical</a>: Calendar + contacts server</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/roundcube">roundcube</a>: Webmail server, along with a managesieve plugin for server side mail filtering.</li>
+</ul>
 
 
 
@@ -583,25 +725,6 @@
                     
 
                     
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -609,6 +732,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -714,6 +840,22 @@
                     
 
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -761,22 +903,6 @@
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -809,7 +935,7 @@
 			<a class="nav nav-prev" href="/" title="Excision Mail"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/install/guide/" title="Installation Guide" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/features/" title="Feature Highlights" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -819,19 +945,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609353504"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609353504"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609353504"></script>
-    <script src="/js/jquery.sticky.js?1609353504"></script>
-    <script src="/js/featherlight.min.js?1609353504"></script>
-    <script src="/js/highlight.pack.js?1609353504"></script>
+    <script src="/js/clipboard.min.js?1609354380"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609354380"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609354380"></script>
+    <script src="/js/jquery.sticky.js?1609354380"></script>
+    <script src="/js/featherlight.min.js?1609354380"></script>
+    <script src="/js/highlight.pack.js?1609354380"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609353504"></script>
-    <script src="/js/learn.js?1609353504"></script>
-    <script src="/js/hugo-learn.js?1609353504"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609354380"></script>
+    <script src="/js/learn.js?1609354380"></script>
+    <script src="/js/hugo-learn.js?1609354380"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609353504"></script>
+            <script src="/mermaid/mermaid.js?1609354380"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

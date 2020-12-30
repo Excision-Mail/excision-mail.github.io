@@ -12,21 +12,21 @@
     <title>System Backups :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609353504" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609353504" rel="stylesheet">
-    <link href="/css/hybrid.css?1609353504" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609353504" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609353504" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609353504" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609353504" rel="stylesheet">
-    <link href="/css/theme.css?1609353504" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609353504" rel="stylesheet">
+    <link href="/css/nucleus.css?1609354380" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609354380" rel="stylesheet">
+    <link href="/css/hybrid.css?1609354380" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609354380" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609354380" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609354380" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609354380" rel="stylesheet">
+    <link href="/css/theme.css?1609354380" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609354380" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609353504" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609354380" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609353504"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609354380"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609353504"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609353504"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609354380"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609354380"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609353504"></script>
+<script type="text/javascript" src="/js/search.js?1609354380"></script>
 
     
   </div>
@@ -115,37 +115,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/install/guide/" title="Installation Guide" class="dd-item ">
-        <a href="/install/guide/">
-        Installation Guide
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
       
     </li>
   
@@ -302,6 +271,30 @@
  
   
     
+    <li data-nav-id="/backups/" title="System Backups" class="dd-item
+        parent
+        active
+        
+        ">
+      <a href="/backups/">
+          System Backups
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
     <li data-nav-id="/guides/" title="Extra guides" class="dd-item
         
         
@@ -415,30 +408,6 @@
  
 
           
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/backups/" title="System Backups" class="dd-item
-        parent
-        active
-        
-        ">
-      <a href="/backups/">
-          System Backups
-          
-      </a>
-      
-      
-    </li>
-  
- 
-
-          
         
     </ul>
 
@@ -512,7 +481,7 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#ifiles">Important non-replaceable files</a></li>
-    <li><a href="#restic">Backup using restic</a></li>
+    <li><a href="#restic">Example backup using restic</a></li>
   </ul>
 </nav>
     </div>
@@ -539,7 +508,7 @@
 
 
 	<h2 id="ifiles">Important non-replaceable files</h2>
-<p>These files are generated over time when using Excision and cannot be restored by the ansible scripts</p>
+<p>These files are generated over time when using Excision and cannot be restored by the ansible scripts:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># excision config files folder</span>
 /etc/excision/
 
@@ -556,8 +525,8 @@
 
 <span style="color:#75715e"># and of course, the whole email folder</span>
 /var/excision/
-</code></pre></div><h2 id="restic">Backup using restic</h2>
-<p>Here is a sample configuration using <a href="https://restic.net/">restic</a> which backs up the desired folders to a remote repo in <code>/etc/daily.local</code></p>
+</code></pre></div><h2 id="restic">Example backup using restic</h2>
+<p>Here is a sample configuration using <a href="https://restic.net/">restic</a> which backs up the desired folders to a remote repo in <code>/etc/daily.local</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># set up a restic repo somewhere which can be accessed</span>
 <span style="color:#75715e"># using your desired method</span>
 RESTIC_REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sftp:truenas:/mnt/Media/backups/mail.aisha.cc&#34;</span>
@@ -654,22 +623,6 @@ unset RDIFF_FILE RESTIC_REPO NLINES
                     
 
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -774,6 +727,26 @@ unset RDIFF_FILE RESTIC_REPO NLINES
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -837,23 +810,6 @@ unset RDIFF_FILE RESTIC_REPO NLINES
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -875,10 +831,10 @@ unset RDIFF_FILE RESTIC_REPO NLINES
 	 
 	 
 		
-			<a class="nav nav-prev" href="/credits/" title="Credits"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/overview/" title="System Overview"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/install/" title="Installation overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/guides/" title="Extra guides" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -888,19 +844,19 @@ unset RDIFF_FILE RESTIC_REPO NLINES
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609353504"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609353504"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609353504"></script>
-    <script src="/js/jquery.sticky.js?1609353504"></script>
-    <script src="/js/featherlight.min.js?1609353504"></script>
-    <script src="/js/highlight.pack.js?1609353504"></script>
+    <script src="/js/clipboard.min.js?1609354380"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609354380"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609354380"></script>
+    <script src="/js/jquery.sticky.js?1609354380"></script>
+    <script src="/js/featherlight.min.js?1609354380"></script>
+    <script src="/js/highlight.pack.js?1609354380"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609353504"></script>
-    <script src="/js/learn.js?1609353504"></script>
-    <script src="/js/hugo-learn.js?1609353504"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609354380"></script>
+    <script src="/js/learn.js?1609354380"></script>
+    <script src="/js/hugo-learn.js?1609354380"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609353504"></script>
+            <script src="/mermaid/mermaid.js?1609354380"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

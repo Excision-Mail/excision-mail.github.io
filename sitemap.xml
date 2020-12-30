@@ -8,7 +8,8 @@
   </url>
   
   <url>
-    <loc>/install/guide/</loc>
+    <loc>/features/</loc>
+    <lastmod>2020-06-16T15:48:46-04:00</lastmod>
   </url>
   
   <url>
@@ -18,11 +19,6 @@
   
   <url>
     <loc>/features/email/</loc>
-    <lastmod>2020-06-16T15:48:46-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/features/</loc>
     <lastmod>2020-06-16T15:48:46-04:00</lastmod>
   </url>
   
@@ -38,6 +34,11 @@
   
   <url>
     <loc>/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>/backups/</loc>
+    <lastmod>2020-06-16T15:48:50-04:00</lastmod>
   </url>
   
   <url>
@@ -63,11 +64,6 @@
   <url>
     <loc>/guides/manualdns/</loc>
     <lastmod>2020-06-16T15:48:49-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/backups/</loc>
-    <lastmod>2020-06-16T15:48:50-04:00</lastmod>
   </url>
   
   <url>
