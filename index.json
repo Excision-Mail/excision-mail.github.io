@@ -14,34 +14,6 @@
 	"content": "Security Email Calendar and Contacts System Management "
 },
 {
-	"uri": "/features/davical/",
-	"title": "Calendar and Contacts",
-	"tags": [],
-	"description": "",
-	"content": "DAViCal - CardDav CalDAV "
-},
-{
-	"uri": "/features/email/",
-	"title": "Emails",
-	"tags": [],
-	"description": "",
-	"content": "Emails "
-},
-{
-	"uri": "/features/security/",
-	"title": "Security",
-	"tags": [],
-	"description": "",
-	"content": "Security "
-},
-{
-	"uri": "/features/system/",
-	"title": "System Management",
-	"tags": [],
-	"description": "",
-	"content": "System Management "
-},
-{
 	"uri": "/overview/",
 	"title": "System Overview",
 	"tags": [],
