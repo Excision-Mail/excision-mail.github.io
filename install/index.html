@@ -12,21 +12,21 @@
     <title>Installation overview :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609357470" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609357470" rel="stylesheet">
-    <link href="/css/hybrid.css?1609357470" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609357470" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609357470" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609357470" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609357470" rel="stylesheet">
-    <link href="/css/theme.css?1609357470" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609357470" rel="stylesheet">
+    <link href="/css/nucleus.css?1609357580" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609357580" rel="stylesheet">
+    <link href="/css/hybrid.css?1609357580" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609357580" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609357580" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609357580" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609357580" rel="stylesheet">
+    <link href="/css/theme.css?1609357580" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609357580" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609357470" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609357580" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609357470"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609357580"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609357470"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609357470"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609357580"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609357580"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609357470"></script>
+<script type="text/javascript" src="/js/search.js?1609357580"></script>
 
     
   </div>
@@ -364,6 +364,10 @@
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#vars">Set up vars.yml</a></li>
+    <li><a href="#inventory">Set up the inventory</a></li>
+    <li><a href="#preinstall">Execute site-preinstall playbook</a></li>
+    <li><a href="#install">Execute site-install playbook</a></li>
+    <li><a href="#extras">Execute site-extras playbook (optional)</a></li>
   </ul>
 </nav>
     </div>
@@ -406,151 +410,67 @@
 <p>A minimal configuration using the optional, but highly recommended, <a href="https://man.openbsd.org/nsd.8">nsd(8)</a> setup would be similar to:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">mail.aisha.cc</span>
@@ -613,93 +533,116 @@
           <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
         - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns34</span>
           <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47 </span>
-{{ <span style="color:#ae81ff">&lt;/highlight&gt; }}</span>
-
-<span style="color:#75715e">## Set up the inventory {#inventory}</span>
-
-<span style="color:#ae81ff">If you are running Ansible on the mail server, the default `inventory-sample.ini` should be enough. Just copy and rename the file to `inventory.ini` and it should work.</span>
-
-<span style="color:#ae81ff">```ini</span>
-[<span style="color:#ae81ff">extraserver]</span>
-<span style="color:#ae81ff">extra ansible_connection=local ansible_python_interpreter=/usr/local/bin/python3</span>
-
-[<span style="color:#ae81ff">mainserver]</span>
-<span style="color:#ae81ff">extra ansible_connection=local ansible_python_interpreter=/usr/local/bin/python3</span>
-
-[<span style="color:#ae81ff">global:children]</span>
-<span style="color:#ae81ff">extraserver</span>
-<span style="color:#ae81ff">mainserver</span>
-<span style="color:#ae81ff">```</span>
-
-<span style="color:#75715e">## Execute site-preinstall playbook {#preinstall}</span>
-
-<span style="color:#f92672">The first playbook to run is the `site-preinstall.yml`</span>:
-
-<span style="color:#ae81ff">```sh</span>
-<span style="color:#ae81ff">$ ansible-playbook site-preinstall.yml</span>
-<span style="color:#ae81ff">```</span>
-
-<span style="color:#f92672">This runs the following preliminary roles (in order) for a basic setup</span>:
-
-- <span style="color:#f92672">[pre-excision](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/pre-excision)</span>:
-    - <span style="color:#ae81ff">Installs the needed packages, custom scripts and creates configuration directories.</span>
-    - <span style="color:#ae81ff">Sets up system users and groups with minimal permissions.</span>
-- <span style="color:#f92672">[base](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/base)</span>:
-    - <span style="color:#ae81ff">Set up logging, cron jobs and firewall.</span>
-- <span style="color:#f92672">[nsd](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/nsd) (optional, highly recommended)</span>:
-    - <span style="color:#ae81ff">Configure the DNS for all domains with nsd enabled.</span>
-
-
-<span style="color:#ae81ff">&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;It will take about 10-15 minutes after running the &lt;strong&gt;site-preinstall&lt;/strong&gt; role for the DNS changes to be in effect. Running the &lt;strong&gt;site-install&lt;/strong&gt; role too soon may cause it to abort as Lets Encrypt may not be able to find the websites.&lt;/p&gt;</span>
-<span style="color:#ae81ff">&lt;/div&gt;</span>
-
-
-<span style="color:#75715e">## Execute site-install playbook {#install}</span>
-
-<span style="color:#f92672">The buld of the work is done in the `site-install.yml` playbook</span>:
-
-<span style="color:#ae81ff">```sh</span>
-<span style="color:#ae81ff">$ ansible-playbook site-install.yml</span>
-<span style="color:#ae81ff">```</span>
-
-<span style="color:#f92672">The following roles are run (in order)</span>:
-
-- <span style="color:#f92672">[httpd](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/httpd)</span>:
-    - <span style="color:#ae81ff">Sets up the [httpd(8)](https://man.openbsd.org/man8/httpd.8) web server for all domains and subdomains.</span>
-- <span style="color:#f92672">[acme](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/acme)</span>:
-    - <span style="color:#ae81ff">Creates the *SSL* certificates with [acme-client(1)](https://man.openbsd.org/man1/acme-client.1).</span>
-    - <span style="color:#ae81ff">Sets up the [relayd(8)](https://man.openbsd.org/man8/relayd.8) reverse proxy.</span>
-- <span style="color:#f92672">[spamd](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/spamd) (optional)</span>:
-    - <span style="color:#ae81ff">Sets up grey listing and tarpitting for spam protection.</span>
-- <span style="color:#f92672">[rspamd](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/rspamd)</span>:
-    - <span style="color:#ae81ff">Gives a *lot* of spam protection setup techniques.</span>
-    - <span style="color:#ae81ff">Enables DKIM signing for outgoing mails.</span>
-- <span style="color:#f92672">[clamav](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/clamav) (optional)</span>:
-    - <span style="color:#ae81ff">Sets up an antivirus which scans all attachments and emails.</span>
-    - <span style="color:#75715e">**WARNING**:</span> <span style="color:#ae81ff">this is quite heavy and may cripple smaller servers.</span>
-- <span style="color:#f92672">[smtpd](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/smtpd)</span>:
-    - <span style="color:#ae81ff">Finally sets up the actual OpenSMTPD MTA.</span>
-- <span style="color:#f92672">[dovecot](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/dovecot)</span>:
-    - <span style="color:#ae81ff">Sets up the IMAP/POP3 servers.</span>
-    - <span style="color:#ae81ff">Sets up the local MDA for virtuals users.</span>
-
-<span style="color:#75715e">## Execute site-extras playbook (optional) {#extras}</span>
-
-<span style="color:#ae81ff">This enables extra functionality that is not inherently needed for an email server but has become ubiquitous for almost all email setups.</span>
-
-<span style="color:#ae81ff">```sh</span>
-<span style="color:#ae81ff">$ ansible-playbook site-extra.yml</span>
-<span style="color:#ae81ff">```</span>
-
-<span style="color:#f92672">This installs and configures (in order)</span>:
-
-- [<span style="color:#ae81ff">php](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/php)</span>
-- [<span style="color:#ae81ff">postgresql](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/postgresql)</span>
-- <span style="color:#f92672">[davical](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/davical)</span>: <span style="color:#ae81ff">Calendar + contacts server</span>
-- <span style="color:#f92672">[roundcube](https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/roundcube)</span>: <span style="color:#ae81ff">Webmail server, along with a managesieve plugin for server side mail filtering.</span></code></pre></td></tr></table>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47 </span></code></pre></td></tr></table>
 </div>
 </div>
+<h2 id="inventory">Set up the inventory</h2>
+<p>If you are running Ansible on the mail server, the default <code>inventory-sample.ini</code> should be enough. Just copy and rename the file to <code>inventory.ini</code> and it should work.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extraserver]</span>
+<span style="color:#a6e22e">extra ansible_connection</span><span style="color:#f92672">=</span><span style="color:#e6db74">local ansible_python_interpreter=/usr/local/bin/python3</span>
+
+<span style="color:#66d9ef">[mainserver]</span>
+<span style="color:#a6e22e">extra ansible_connection</span><span style="color:#f92672">=</span><span style="color:#e6db74">local ansible_python_interpreter=/usr/local/bin/python3</span>
+
+<span style="color:#66d9ef">[global:children]</span>
+<span style="color:#a6e22e">extraserver</span>
+<span style="color:#a6e22e">mainserver</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="preinstall">Execute site-preinstall playbook</h2>
+<p>The first playbook to run is the <code>site-preinstall.yml</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-preinstall.yml
+</code></pre></div><p>This runs the following preliminary roles (in order) for a basic setup:</p>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/pre-excision">pre-excision</a>:
+<ul>
+<li>Installs the needed packages, custom scripts and creates configuration directories.</li>
+<li>Sets up system users and groups with minimal permissions.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/base">base</a>:
+<ul>
+<li>Set up logging, cron jobs and firewall.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/nsd">nsd</a> (optional, highly recommended):
+<ul>
+<li>Configure the DNS for all domains with nsd enabled.</li>
+</ul>
+</li>
+</ul>
+
+<div class="notices info" ><p>It will take about 10-15 minutes after running the <strong>site-preinstall</strong> role for the DNS changes to be in effect. Running the <strong>site-install</strong> role too soon may cause it to abort as Lets Encrypt may not be able to find the websites.</p>
+</div>
+
+<h2 id="install">Execute site-install playbook</h2>
+<p>The buld of the work is done in the <code>site-install.yml</code> playbook:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-install.yml
+</code></pre></div><p>The following roles are run (in order):</p>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/httpd">httpd</a>:
+<ul>
+<li>Sets up the <a href="https://man.openbsd.org/man8/httpd.8">httpd(8)</a> web server for all domains and subdomains.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/acme">acme</a>:
+<ul>
+<li>Creates the <em>SSL</em> certificates with <a href="https://man.openbsd.org/man1/acme-client.1">acme-client(1)</a>.</li>
+<li>Sets up the <a href="https://man.openbsd.org/man8/relayd.8">relayd(8)</a> reverse proxy.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/spamd">spamd</a> (optional):
+<ul>
+<li>Sets up grey listing and tarpitting for spam protection.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/rspamd">rspamd</a>:
+<ul>
+<li>Gives a <em>lot</em> of spam protection setup techniques.</li>
+<li>Enables DKIM signing for outgoing mails.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/clamav">clamav</a> (optional):
+<ul>
+<li>Sets up an antivirus which scans all attachments and emails.</li>
+<li><strong>WARNING</strong>: this is quite heavy and may cripple smaller servers.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/smtpd">smtpd</a>:
+<ul>
+<li>Finally sets up the actual OpenSMTPD MTA.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/dovecot">dovecot</a>:
+<ul>
+<li>Sets up the IMAP/POP3 servers.</li>
+<li>Sets up the local MDA for virtuals users.</li>
+</ul>
+</li>
+</ul>
+<h2 id="extras">Execute site-extras playbook (optional)</h2>
+<p>This enables extra functionality that is not inherently needed for an email server but has become ubiquitous for almost all email setups.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-extra.yml
+</code></pre></div><p>This installs and configures (in order):</p>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/php">php</a></li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/postgresql">postgresql</a></li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/davical">davical</a>: Calendar + contacts server</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/roundcube">roundcube</a>: Webmail server, along with a managesieve plugin for server side mail filtering.</li>
+</ul>
 
 
 
@@ -889,19 +832,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609357470"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609357470"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609357470"></script>
-    <script src="/js/jquery.sticky.js?1609357470"></script>
-    <script src="/js/featherlight.min.js?1609357470"></script>
-    <script src="/js/highlight.pack.js?1609357470"></script>
+    <script src="/js/clipboard.min.js?1609357580"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609357580"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609357580"></script>
+    <script src="/js/jquery.sticky.js?1609357580"></script>
+    <script src="/js/featherlight.min.js?1609357580"></script>
+    <script src="/js/highlight.pack.js?1609357580"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609357470"></script>
-    <script src="/js/learn.js?1609357470"></script>
-    <script src="/js/hugo-learn.js?1609357470"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609357580"></script>
+    <script src="/js/learn.js?1609357580"></script>
+    <script src="/js/hugo-learn.js?1609357580"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609357470"></script>
+            <script src="/mermaid/mermaid.js?1609357580"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
