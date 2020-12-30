@@ -35,13 +35,6 @@
 	"content": "Guides not directly related to the base Excision Mail system\n"
 },
 {
-	"uri": "/credits/",
-	"title": "Credits",
-	"tags": [],
-	"description": "",
-	"content": "section to honor the people who have contributed\n"
-},
-{
 	"uri": "/guides/secondary/",
 	"title": "Secondary nameserver overview",
 	"tags": [],
