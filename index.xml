@@ -27,7 +27,7 @@
 FreeDNS configuration First make an account on FreeDNS and then go to add backup dns:
 https://freedns.afraid.org/secondary/add.php
   Secondary servers The information related to secondary nameservers is available on their website: https://freedns.afraid.org/secondary/instructions.php
-  NOTE: This still hasn&amp;rsquo;t given you the ip of ns2.afraid.org. You should poke around on their website to find the relevant information or use the `host` command on OpenBSD to get the ip addresses of ns2.</description>
+  NOTE: This still hasn&amp;rsquo;t given you the ip of ns2.afraid.org. You should poke around on their website to find the relevant information or use the host command on OpenBSD to get the ip addresses of ns2.</description>
     </item>
     
     <item>

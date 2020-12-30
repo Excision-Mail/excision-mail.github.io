@@ -12,21 +12,21 @@
     <title>FreeDNS setup :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609356869" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609356869" rel="stylesheet">
-    <link href="/css/hybrid.css?1609356869" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609356869" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609356869" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609356869" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609356869" rel="stylesheet">
-    <link href="/css/theme.css?1609356869" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609356869" rel="stylesheet">
+    <link href="/css/nucleus.css?1609357470" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609357470" rel="stylesheet">
+    <link href="/css/hybrid.css?1609357470" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609357470" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609357470" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609357470" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609357470" rel="stylesheet">
+    <link href="/css/theme.css?1609357470" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609357470" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609356869" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609357470" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609356869"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609357470"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609356869"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609356869"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609357470"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609357470"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609356869"></script>
+<script type="text/javascript" src="/js/search.js?1609357470"></script>
 
     
   </div>
@@ -375,7 +375,6 @@
       </ul>
     </li>
     <li><a href="#registrar-configuration--namecheap">Registrar configuration (namecheap)</a></li>
-    <li><a href="#excision-configuration">Excision configuration</a></li>
   </ul>
 </nav>
     </div>
@@ -416,12 +415,19 @@
     <img src="/images/freedns_secondary_info.png"/> 
 </figure>
 
-<p><strong><strong>NOTE</strong></strong>: This still hasn&rsquo;t given you the ip of ns2.afraid.org. You should poke around on their website to find the relevant information or use the `host` command on OpenBSD to get the ip addresses of ns2.afraid.org
-```
-$ host ns2.afraid.org
+<p><strong>NOTE</strong>: This still hasn&rsquo;t given you the ip of ns2.afraid.org. You should poke around on their website to find the relevant information or use the <code>host</code> command on OpenBSD to get the ip addresses of ns2.afraid.org.
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ host ns2.afraid.org
 ns2.afraid.org has address 69.65.50.223
-ns2.afraid.org has IPv6 address 2001:1850:1:5:800::6b
-```</p>
+ns2.afraid.org has IPv6 address 2001:1850:1:5:800::6b</code></pre></td></tr></table>
+</div>
+</div></p>
 <h2 id="registrar-configuration--namecheap">Registrar configuration (namecheap)</h2>
 <p>You can set up the configuration at your registrar, depending on your provider.
 E.g. on NameCheap:</p>
@@ -429,162 +435,6 @@ E.g. on NameCheap:</p>
     <img src="/images/namecheap_dns_configuration.png"/> 
 </figure>
 
-<h2 id="excision-configuration">Excision configuration</h2>
-<p>A full vars.yml file as an example is:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">domain</span>: <span style="color:#ae81ff">aisha.cc</span>
-<span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">mail</span>
-<span style="color:#f92672">admin</span>: <span style="color:#ae81ff">aisha</span>
-
-<span style="color:#f92672">additional_domains</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">epsilonknot.xyz</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">bsd.ac</span>
-          <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">private_interface</span>: <span style="color:#ae81ff">tun0</span>
-
-<span style="color:#75715e"># ip1</span>
-<span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">108.61.81.40</span>
-<span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">19f0:5:36b:5400:2ff:fe7f:a634</span>
-
-<span style="color:#f92672">enable_clamav</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">enable_spamd</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">enable_nsd</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">username_delimiter</span>: <span style="color:#e6db74">&#34;.&#34;</span>
-<span style="color:#f92672">rspamd_enable_pretrain</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">additional_udp_ports</span>:
-        - <span style="color:#ae81ff">161</span>
-
-<span style="color:#75715e"># ip2</span>
-<span style="color:#f92672">secondary_nameservers</span>:
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">69.65.50.192</span> <span style="color:#75715e"># freedns2</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">1850</span>:<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">800</span>::<span style="color:#ae81ff">6b</span> <span style="color:#75715e"># freedns2</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span> <span style="color:#75715e"># ALL rest are cloudns</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.193</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:3::1</span>
-
-<span style="color:#75715e"># ip3</span>
-<span style="color:#f92672">public_nameservers</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">freedns2</span> <span style="color:#75715e"># this is freedns2</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">66.65.50.223</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">1850</span>:<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">800</span>::<span style="color:#ae81ff">6b</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns31</span> <span style="color:#75715e"># ALL are cloudns</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns32</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns33</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns34</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns31</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns32</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns33</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns34</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47</span></code></pre></td></tr></table>
-</div>
-</div>
 
 
 <footer class="footline">
@@ -778,19 +628,19 @@ E.g. on NameCheap:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609356869"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609356869"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609356869"></script>
-    <script src="/js/jquery.sticky.js?1609356869"></script>
-    <script src="/js/featherlight.min.js?1609356869"></script>
-    <script src="/js/highlight.pack.js?1609356869"></script>
+    <script src="/js/clipboard.min.js?1609357470"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609357470"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609357470"></script>
+    <script src="/js/jquery.sticky.js?1609357470"></script>
+    <script src="/js/featherlight.min.js?1609357470"></script>
+    <script src="/js/highlight.pack.js?1609357470"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609356869"></script>
-    <script src="/js/learn.js?1609356869"></script>
-    <script src="/js/hugo-learn.js?1609356869"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609357470"></script>
+    <script src="/js/learn.js?1609357470"></script>
+    <script src="/js/hugo-learn.js?1609357470"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609356869"></script>
+            <script src="/mermaid/mermaid.js?1609357470"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
