@@ -49,13 +49,6 @@
 	"content": "System Management "
 },
 {
-	"uri": "/install/roles/",
-	"title": "Role Configurations",
-	"tags": [],
-	"description": "",
-	"content": "HTTPD "
-},
-{
 	"uri": "/overview/",
 	"title": "System Overview",
 	"tags": [],
