@@ -14,10 +14,7 @@
       <guid>/</guid>
       <description>Excision Mail Fullstack, security focused mailserver based on OpenSMTPD for OpenBSD.
 Website is still a WIP but feel free to explore and give feedback.
- Documentation The documentation covers various aspects of the system:
-A lot of the documentation is underwritten and not up to the desired standard.
-Any help writing it is appreciated.
-  Installation guide System Overview The excision command Backups  </description>
+ </description>
     </item>
     
   </channel>

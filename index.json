@@ -60,7 +60,7 @@
 	"title": "Excision Mail",
 	"tags": [],
 	"description": "",
-	"content": "Excision Mail Fullstack, security focused mailserver based on OpenSMTPD for OpenBSD.\nWebsite is still a WIP but feel free to explore and give feedback.\n Documentation The documentation covers various aspects of the system:\nA lot of the documentation is underwritten and not up to the desired standard.\nAny help writing it is appreciated.\n  Installation guide System Overview The excision command Backups  "
+	"content": "Excision Mail Fullstack, security focused mailserver based on OpenSMTPD for OpenBSD.\nWebsite is still a WIP but feel free to explore and give feedback.\n "
 },
 {
 	"uri": "/categories/",
