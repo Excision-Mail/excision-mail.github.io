@@ -12,21 +12,21 @@
     <title>Expert Installation :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609732104" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609732104" rel="stylesheet">
-    <link href="/css/hybrid.css?1609732104" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609732104" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609732104" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609732104" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609732104" rel="stylesheet">
-    <link href="/css/theme.css?1609732104" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609732104" rel="stylesheet">
+    <link href="/css/nucleus.css?1609732293" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609732293" rel="stylesheet">
+    <link href="/css/hybrid.css?1609732293" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609732293" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609732293" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609732293" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609732293" rel="stylesheet">
+    <link href="/css/theme.css?1609732293" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609732293" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609732104" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609732293" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609732104"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609732293"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609732104"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609732104"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609732293"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609732293"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609732104"></script>
+<script type="text/javascript" src="/js/search.js?1609732293"></script>
 
     
   </div>
@@ -626,9 +626,28 @@ The only catch here is that the installation is going to be on two separate serv
 <h2 id="inventory">Set up the inventory</h2>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code></code></pre></td>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"></code></pre></td></tr></table>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># this is a -current server</span>
+<span style="color:#66d9ef">[extraserver]</span>
+<span style="color:#a6e22e">extra ansible_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">10.7.0.3 ansible_python_interpreter=/usr/local/bin/python3.9</span>
+
+<span style="color:#66d9ef">[mainserver]</span>
+<span style="color:#a6e22e">main ansible_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">10.7.0.1 ansible_python_interpreter=/usr/local/bin/python3.8</span>
+
+<span style="color:#66d9ef">[global:children]</span>
+<span style="color:#a6e22e">extraserver</span>
+<span style="color:#a6e22e">mainserver</span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="roles">Execute the playbook roles</h2>
@@ -835,19 +854,19 @@ The only catch here is that the installation is going to be on two separate serv
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609732105"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609732105"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609732105"></script>
-    <script src="/js/jquery.sticky.js?1609732105"></script>
-    <script src="/js/featherlight.min.js?1609732105"></script>
-    <script src="/js/highlight.pack.js?1609732105"></script>
+    <script src="/js/clipboard.min.js?1609732293"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609732293"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609732293"></script>
+    <script src="/js/jquery.sticky.js?1609732293"></script>
+    <script src="/js/featherlight.min.js?1609732293"></script>
+    <script src="/js/highlight.pack.js?1609732293"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609732105"></script>
-    <script src="/js/learn.js?1609732105"></script>
-    <script src="/js/hugo-learn.js?1609732105"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609732293"></script>
+    <script src="/js/learn.js?1609732293"></script>
+    <script src="/js/hugo-learn.js?1609732293"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609732105"></script>
+            <script src="/mermaid/mermaid.js?1609732293"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
