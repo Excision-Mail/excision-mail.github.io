@@ -15,7 +15,7 @@
       <guid>/install/expert/</guid>
       <description>Overview The overall structure is similar to the standard installation process, wherein you run the three roles in order.
 The only catch here is that the installation is going to be on two separate servers, which necessitates a more complex vars.yml file.
-Architecture overview    var ctx = document.getElementById(&#39;557&#39;).getContext(&#39;2d&#39;); var options = { type: &#39;bar&#39;, data: { labels: [&#39;Red&#39;, &#39;Blue&#39;, &#39;Yellow&#39;, &#39;Green&#39;, &#39;Purple&#39;, &#39;Orange&#39;], datasets: [{ label: &#39;Bar Chart&#39;, data: [12, 19, 18, 16, 13, 14], backgroundColor: [ &#39;rgba(255, 99, 132, 0.</description>
+Architecture overview    document.addEventListener(&#39;DOMContentLoaded&#39;, function () { var myChart = Highcharts.chart(&#39;expert_map&#39;, { chart: { backgroundColor: &#39;white&#39;, events: { load: function () { // Draw the flow chart var ren = this.</description>
     </item>
     
     <item>
