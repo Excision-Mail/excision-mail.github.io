@@ -12,21 +12,21 @@
     <title>Expert Installation :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609733046" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609733046" rel="stylesheet">
-    <link href="/css/hybrid.css?1609733046" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609733046" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609733046" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609733046" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609733046" rel="stylesheet">
-    <link href="/css/theme.css?1609733046" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609733046" rel="stylesheet">
+    <link href="/css/nucleus.css?1609733091" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609733091" rel="stylesheet">
+    <link href="/css/hybrid.css?1609733091" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609733091" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609733091" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609733091" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609733091" rel="stylesheet">
+    <link href="/css/theme.css?1609733091" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609733091" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609733046" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609733091" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609733046"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609733091"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609733046"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609733046"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609733091"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609733091"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609733046"></script>
+<script type="text/javascript" src="/js/search.js?1609733091"></script>
 
     
   </div>
@@ -432,11 +432,43 @@
 <p>The overall structure is similar to the standard installation process, wherein you run the three roles in order.<br>
 The only catch here is that the installation is going to be on two separate servers, which necessitates a more complex <code>vars.yml</code> file.</p>
 <h2 id="architecture-overview">Architecture overview</h2>
-
-<div class="mermaid" align="left">
-
-</div>
-
+<p>{
+type: &lsquo;bar&rsquo;,
+data: {
+labels: [&lsquo;Red&rsquo;, &lsquo;Blue&rsquo;, &lsquo;Yellow&rsquo;, &lsquo;Green&rsquo;, &lsquo;Purple&rsquo;, &lsquo;Orange&rsquo;],
+datasets: [{
+label: &lsquo;Bar Chart&rsquo;,
+data: [12, 19, 18, 16, 13, 14],
+backgroundColor: [
+&lsquo;rgba(255, 99, 132, 0.2)&rsquo;,
+&lsquo;rgba(54, 162, 235, 0.2)&rsquo;,
+&lsquo;rgba(255, 206, 86, 0.2)&rsquo;,
+&lsquo;rgba(75, 192, 192, 0.2)&rsquo;,
+&lsquo;rgba(153, 102, 255, 0.2)&rsquo;,
+&lsquo;rgba(255, 159, 64, 0.2)&rsquo;
+],
+borderColor: [
+&lsquo;rgba(255, 99, 132, 1)&rsquo;,
+&lsquo;rgba(54, 162, 235, 1)&rsquo;,
+&lsquo;rgba(255, 206, 86, 1)&rsquo;,
+&lsquo;rgba(75, 192, 192, 1)&rsquo;,
+&lsquo;rgba(153, 102, 255, 1)&rsquo;,
+&lsquo;rgba(255, 159, 64, 1)&rsquo;
+],
+borderWidth: 1
+}]
+},
+options: {
+maintainAspectRatio: false,
+scales: {
+yAxes: [{
+ticks: {
+beginAtZero: true
+}
+}]
+}
+}
+}</p>
 <h2 id="vars">Set up vars.yml</h2>
 <p>An example <code>vars.yml</code> for the above installation:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -854,19 +886,19 @@ The only catch here is that the installation is going to be on two separate serv
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609733046"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609733046"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609733046"></script>
-    <script src="/js/jquery.sticky.js?1609733046"></script>
-    <script src="/js/featherlight.min.js?1609733046"></script>
-    <script src="/js/highlight.pack.js?1609733046"></script>
+    <script src="/js/clipboard.min.js?1609733091"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609733091"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609733091"></script>
+    <script src="/js/jquery.sticky.js?1609733091"></script>
+    <script src="/js/featherlight.min.js?1609733091"></script>
+    <script src="/js/highlight.pack.js?1609733091"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609733046"></script>
-    <script src="/js/learn.js?1609733046"></script>
-    <script src="/js/hugo-learn.js?1609733046"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609733091"></script>
+    <script src="/js/learn.js?1609733091"></script>
+    <script src="/js/hugo-learn.js?1609733091"></script>
     
         
-            <script src="/mermaid/mermaid.js?1609733046"></script>
+            <script src="/mermaid/mermaid.js?1609733091"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
