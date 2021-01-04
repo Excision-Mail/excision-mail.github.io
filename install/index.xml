@@ -15,7 +15,7 @@
       <guid>/install/expert/</guid>
       <description>Overview The overall structure is similar to the standard installation process, wherein you run the three roles in order.
 The only catch here is that the installation is going to be on two separate servers, which necessitates a more complex vars.yml file.
-Architecture overview { type: &amp;lsquo;bar&amp;rsquo;, data: { labels: [&amp;lsquo;Red&amp;rsquo;, &amp;lsquo;Blue&amp;rsquo;, &amp;lsquo;Yellow&amp;rsquo;, &amp;lsquo;Green&amp;rsquo;, &amp;lsquo;Purple&amp;rsquo;, &amp;lsquo;Orange&amp;rsquo;], datasets: [{ label: &amp;lsquo;Bar Chart&amp;rsquo;, data: [12, 19, 18, 16, 13, 14], backgroundColor: [ &amp;lsquo;rgba(255, 99, 132, 0.</description>
+Architecture overview    var ctx = document.getElementById(&#39;686&#39;).getContext(&#39;2d&#39;); var options = { type: &#39;bar&#39;, data: { labels: [&#39;Red&#39;, &#39;Blue&#39;, &#39;Yellow&#39;, &#39;Green&#39;, &#39;Purple&#39;, &#39;Orange&#39;], datasets: [{ label: &#39;Bar Chart&#39;, data: [12, 19, 18, 16, 13, 14], backgroundColor: [ &#39;rgba(255, 99, 132, 0.</description>
     </item>
     
   </channel>
