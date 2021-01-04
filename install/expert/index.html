@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Installation overview :: Excision Mail @ bsd.ac</title>
+    <title>Expert Installation :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1609732105" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609732105" rel="stylesheet">
-    <link href="/css/hybrid.css?1609732105" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609732105" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609732105" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609732105" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609732105" rel="stylesheet">
-    <link href="/css/theme.css?1609732105" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609732105" rel="stylesheet">
+    <link href="/css/nucleus.css?1609732104" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609732104" rel="stylesheet">
+    <link href="/css/hybrid.css?1609732104" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609732104" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609732104" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609732104" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609732104" rel="stylesheet">
+    <link href="/css/theme.css?1609732104" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609732104" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1609732105" rel="stylesheet">
+    <link href="/css/theme-excision.css?1609732104" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609732105"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609732104"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/install/">
+  <body class="" data-url="/install/expert/">
     <nav id="sidebar" class="">
 
 
@@ -71,14 +71,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1609732105"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1609732105"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1609732104"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1609732104"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1609732105"></script>
+<script type="text/javascript" src="/js/search.js?1609732104"></script>
 
     
   </div>
@@ -107,7 +107,7 @@
     
     <li data-nav-id="/install/" title="Installation overview" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/install/">
@@ -132,7 +132,7 @@
  
   
     
-      <li data-nav-id="/install/expert/" title="Expert Installation" class="dd-item ">
+      <li data-nav-id="/install/expert/" title="Expert Installation" class="dd-item active">
         <a href="/install/expert/">
         Expert Installation
         
@@ -380,7 +380,13 @@
             
           
           
-            <a href='/'>Excision Mail</a> > Installation overview
+            
+            
+          
+          
+            <a href='/'>Excision Mail</a> > <a href='/install/'>Installation overview</a> > Expert Installation
+          
+        
           
         
           
@@ -394,11 +400,10 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#architecture-overview">Architecture overview</a></li>
     <li><a href="#vars">Set up vars.yml</a></li>
     <li><a href="#inventory">Set up the inventory</a></li>
-    <li><a href="#preinstall">Execute site-preinstall playbook</a></li>
-    <li><a href="#install">Execute site-install playbook</a></li>
-    <li><a href="#extras">Execute site-extras playbook (optional)</a></li>
+    <li><a href="#roles">Execute the playbook roles</a></li>
   </ul>
 </nav>
     </div>
@@ -416,29 +421,24 @@
           
             <h1>
               
-              Installation overview
+              Expert Installation
             </h1>
           
 
         
 
 
+<h2 id="overview">Overview</h2>
+<p>The overall structure is similar to the standard installation process, wherein you run the three roles in order.<br>
+The only catch here is that the installation is going to be on two separate servers, which necessitates a more complex <code>vars.yml</code> file.</p>
+<h2 id="architecture-overview">Architecture overview</h2>
 
-	<h2 id="overview">Overview</h2>
-<ul>
-<li><a href="#vars">Set up vars</a></li>
-<li><a href="#inventory">Set up the inventory</a></li>
-<li><a href="#preinstall">Execute site-preinstall playbook</a></li>
-<li><a href="#install">Execute site-install playbook</a></li>
-<li><a href="#extras">Execute site-extras playbook</a> (optional)</li>
-</ul>
-<h2 id="vars">Set up vars.yml</h2>
-<p>It is recommended to first start with a minimal configuration of only the necessities and then re-run the installation to enable the optional extras.</p>
+<div class="mermaid" align="left">
 
-<div class="notices info" ><p>A detailed description of each option is given in the <a href="https://github.com/Excision-Mail/Excision-Mail/blob/master/vars-sample.yml">vars-sample.yml</a> file.</p>
 </div>
 
-<p>A minimal configuration using the optional, but highly recommended, <a href="https://man.openbsd.org/nsd.8">nsd(8)</a> setup would be similar to:</p>
+<h2 id="vars">Set up vars.yml</h2>
+<p>An example <code>vars.yml</code> for the above installation:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -502,6 +502,34 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">mail.aisha.cc</span>
@@ -510,8 +538,35 @@
 <span style="color:#f92672">domains</span>:
   - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">aisha.cc</span>
     <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
+  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">epsilonknot.xyz</span>
+    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
+  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">bsd.ac</span>
+    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
 
 <span style="color:#f92672">enable_nsd</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#f92672">username_delimiter</span>: <span style="color:#e6db74">&#34;.&#34;</span>
+
+<span style="color:#f92672">enable_spamd</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#f92672">rspamd_enable_pretrain</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#f92672">private_interface</span>: <span style="color:#ae81ff">wg0</span>
+<span style="color:#f92672">enable_extras</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">extras_not_home</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">extras_interface</span>: <span style="color:#ae81ff">wg0</span>
+<span style="color:#f92672">extras_ip</span>: <span style="color:#ae81ff">10.7.0.3</span>
+
+<span style="color:#75715e"># needed as second server is a -current server</span>
+<span style="color:#75715e"># which has a newer version of php set as default</span>
+<span style="color:#f92672">php_pkg_version</span>: <span style="color:#ae81ff">7.3.22</span>
+
+<span style="color:#f92672">pgsql_password_roundcube</span>: <span style="color:#ae81ff">prollySOMEpassword</span>
+<span style="color:#f92672">rc_encryption_key</span>: <span style="color:#ae81ff">somethingsomethingencrypt</span>
+
+<span style="color:#f92672">davical_dba_password</span>: <span style="color:#e6db74">&#34;somedavicalpassword!!!!&#34;</span>
+<span style="color:#f92672">davical_app_password</span>: <span style="color:#e6db74">&#34;someotherdavicalappPASSWD123123&#34;</span>
+<span style="color:#f92672">davical_tmp_admin_password</span>: <span style="color:#e6db74">&#34;sup3rc00ltempPASSWD&#34;</span>
 
 <span style="color:#75715e"># ip1</span>
 <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">108.61.81.40</span>
@@ -542,6 +597,7 @@
 <span style="color:#f92672">public_nameservers</span>:
         - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">freedns2</span> <span style="color:#75715e"># freedns2</span>
           <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">66.65.50.223</span>
+          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">1850</span>:<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">800</span>::<span style="color:#ae81ff">6b</span>
         - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns31</span> <span style="color:#75715e"># rest are cloudns</span>
           <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
           <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
@@ -568,118 +624,17 @@
 </div>
 </div>
 <h2 id="inventory">Set up the inventory</h2>
-<p>If you are running Ansible on the mail server, the default <code>inventory-sample.ini</code> should be enough. Just copy and rename the file to <code>inventory.ini</code> and it should work.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[extraserver]</span>
-<span style="color:#a6e22e">extra ansible_connection</span><span style="color:#f92672">=</span><span style="color:#e6db74">local ansible_python_interpreter=/usr/local/bin/python3</span>
-
-<span style="color:#66d9ef">[mainserver]</span>
-<span style="color:#a6e22e">extra ansible_connection</span><span style="color:#f92672">=</span><span style="color:#e6db74">local ansible_python_interpreter=/usr/local/bin/python3</span>
-
-<span style="color:#66d9ef">[global:children]</span>
-<span style="color:#a6e22e">extraserver</span>
-<span style="color:#a6e22e">mainserver</span></code></pre></td></tr></table>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"></code></pre></td></tr></table>
 </div>
 </div>
-<h2 id="preinstall">Execute site-preinstall playbook</h2>
-<p>The first playbook to run is the <code>site-preinstall.yml</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-preinstall.yml
-</code></pre></div><p>This runs the following preliminary roles (in order) for a basic setup:</p>
-<ul>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/pre-excision">pre-excision</a>:
-<ul>
-<li>Installs the needed packages, custom scripts and creates configuration directories.</li>
-<li>Sets up system users and groups with minimal permissions.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/base">base</a>:
-<ul>
-<li>Set up logging, cron jobs and firewall.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/nsd">nsd</a> (optional, highly recommended):
-<ul>
-<li>Configure the DNS for all domains with nsd enabled.</li>
-</ul>
-</li>
-</ul>
-
-<div class="notices info" ><p>It will take about 10-15 minutes after running the <strong>site-preinstall</strong> role for the DNS changes to be in effect. Running the <strong>site-install</strong> role too soon may cause it to abort as Lets Encrypt may not be able to find the websites.</p>
-</div>
-
-<h2 id="install">Execute site-install playbook</h2>
-<p>The buld of the work is done in the <code>site-install.yml</code> playbook:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-install.yml
-</code></pre></div><p>The following roles are run (in order):</p>
-<ul>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/httpd">httpd</a>:
-<ul>
-<li>Sets up the <a href="https://man.openbsd.org/man8/httpd.8">httpd(8)</a> web server for all domains and subdomains.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/acme">acme</a>:
-<ul>
-<li>Creates the <em>SSL</em> certificates with <a href="https://man.openbsd.org/man1/acme-client.1">acme-client(1)</a>.</li>
-<li>Sets up the <a href="https://man.openbsd.org/man8/relayd.8">relayd(8)</a> reverse proxy.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/spamd">spamd</a> (optional):
-<ul>
-<li>Sets up grey listing and tarpitting for spam protection.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/rspamd">rspamd</a>:
-<ul>
-<li>Gives a <em>lot</em> of spam protection setup techniques.</li>
-<li>Enables DKIM signing for outgoing mails.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/clamav">clamav</a> (optional):
-<ul>
-<li>Sets up an antivirus which scans all attachments and emails.</li>
-<li><strong>WARNING</strong>: this is quite heavy and may cripple smaller servers.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/smtpd">smtpd</a>:
-<ul>
-<li>Finally sets up the actual OpenSMTPD MTA.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/dovecot">dovecot</a>:
-<ul>
-<li>Sets up the IMAP/POP3 servers.</li>
-<li>Sets up the local MDA for virtuals users.</li>
-</ul>
-</li>
-</ul>
-<h2 id="extras">Execute site-extras playbook (optional)</h2>
-<p>This enables extra functionality that is not inherently needed for an email server but has become ubiquitous for almost all email setups.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ansible-playbook site-extra.yml
-</code></pre></div><p>This installs and configures (in order):</p>
-<ul>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/php">php</a></li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/postgresql">postgresql</a></li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/davical">davical</a>: Calendar + contacts server</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/roundcube">roundcube</a>: Webmail server, along with a managesieve plugin for server side mail filtering.</li>
-</ul>
+<h2 id="roles">Execute the playbook roles</h2>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -728,8 +683,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -749,6 +702,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -866,10 +822,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/" title="Excision Mail"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/install/" title="Installation overview"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/install/expert/" title="Expert Installation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/features/" title="Feature Highlights" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -901,3 +857,4 @@
 
   </body>
 </html>
+
