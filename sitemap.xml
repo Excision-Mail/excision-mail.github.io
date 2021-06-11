@@ -1,65 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/install/</loc>
     <lastmod>2020-06-16T15:48:44-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/features/</loc>
     <lastmod>2020-06-16T15:48:46-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/install/expert/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/overview/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/backups/</loc>
     <lastmod>2020-06-16T15:48:50-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/guides/</loc>
     <lastmod>2020-06-16T15:48:46-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/guides/secondary/</loc>
     <lastmod>2020-06-16T15:48:47-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/guides/freedns/</loc>
     <lastmod>2020-06-16T15:48:48-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/guides/manualdns/</loc>
     <lastmod>2020-06-16T15:48:49-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2020-06-16T15:48:50-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/main/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
   </url>
-  
 </urlset>
