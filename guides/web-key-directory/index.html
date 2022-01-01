@@ -12,22 +12,22 @@
     <title>Web Key Directory and Service :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1640999037" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1640999037" rel="stylesheet">
-    <link href="/css/hybrid.css?1640999037" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1640999037" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1640999037" rel="stylesheet">
-    <link href="/css/auto-complete.css?1640999037" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1640999037" rel="stylesheet">
-    <link href="/css/theme.css?1640999037" rel="stylesheet">
-    <link href="/css/tabs.css?1640999037" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1640999037" rel="stylesheet">
+    <link href="/css/nucleus.css?1641000406" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1641000406" rel="stylesheet">
+    <link href="/css/hybrid.css?1641000406" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1641000406" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1641000406" rel="stylesheet">
+    <link href="/css/auto-complete.css?1641000406" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1641000406" rel="stylesheet">
+    <link href="/css/theme.css?1641000406" rel="stylesheet">
+    <link href="/css/tabs.css?1641000406" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1641000406" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1640999037" rel="stylesheet">
+    <link href="/css/theme-excision.css?1641000406" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1640999037"></script>
+    <script src="/js/jquery-3.3.1.min.js?1641000406"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -72,14 +72,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1640999037"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1640999037"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1641000406"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1641000406"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1640999037"></script>
+<script type="text/javascript" src="/js/search.js?1641000406"></script>
 
     
   </div>
@@ -456,12 +456,14 @@
 <li>Add an account using mutt-wizard.<br>
 While adding an account, specify the port as <code>587</code>.</li>
 <li>Create a GnuPG key (or skip if already exists).</li>
-<li>Start neomutt and start the key publishing request - <code>Alt + g</code>.</li>
-<li>Receive a verification request.
+<li>Start neomutt and begin a key publishing request - <code>Alt + g</code>.</li>
+<li>Receive a verification request.<br>
 Press <code>o</code> (small-oh) to sync mail.</li>
-<li>Send a mail confirming publication - <code>Alt + h</code> (while selecting the confirmation email).</li>
-<li>Receive a return confirmation mail.</li>
-<li>Manually verify that the key has been published</li>
+<li>Send a mail confirming publication - <code>Alt + h</code>.<br>
+The confirmation email needs to be the highlighted one while pressing this shortcut.</li>
+<li>Receive a return confirmation mail.
+Press <code>o</code> (small-oh) to sync mail.</li>
+<li>Manually verify that the key has been published.</li>
 </ol>
 <pre tabindex="0"><code>$ mw -a test-user@bsd.ac -S 587
 Give your email server's IMAP address (excluding the port number):
@@ -494,7 +496,7 @@ generator a better chance to gain enough entropy.
 
 $ neomutt
 
-&lt;Alt + g&gt;
+&lt;Alt + g&gt; # begin a WKS publication request
 ...
 ...
 ...
@@ -502,15 +504,29 @@ Enter email ID of user to publish: test-user@bsd.ac
 Enter fingerprint of GPG key to publish: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 gpg-wks-client: submitting request to 'wks@bsd.ac'
 
-&lt;o&gt; # small-oh
+&lt;o&gt; # small-oh (sync mail)
 
 	1 Ns+   21/10/31 06:58PM wks@bsd Confirm your key publication (2.4K)
 
-&lt;Alt + h&gt; # the confirmation request should be selected
+&lt;Alt + h&gt; # the confirmation request should be highlighted
+...
+...
+...
+gpg-wks-client: wkd data found
+gpg-wks-client: draft version 2 requested
 
-&lt;o&gt; # small-oh
+&lt;o&gt; # small-oh (sync mail)
 
 	1 NP+   21/10/31 07:02PM wks@bsd Your key has been published (1.5K)
+
+$ gpg -v --auto-key-locate=clear,wkd,nodefault --locate-key test-user@bsd.ac
+...
+...
+...
+gpg: automatically retrieved 'test-user@bsd.ac' via WKD
+...
+...
+...
 
 </code></pre>
 
@@ -734,19 +750,19 @@ gpg-wks-client: submitting request to 'wks@bsd.ac'
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1640999037"></script>
-    <script src="/js/perfect-scrollbar.min.js?1640999037"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1640999037"></script>
-    <script src="/js/jquery.sticky.js?1640999037"></script>
-    <script src="/js/featherlight.min.js?1640999037"></script>
-    <script src="/js/highlight.pack.js?1640999037"></script>
+    <script src="/js/clipboard.min.js?1641000406"></script>
+    <script src="/js/perfect-scrollbar.min.js?1641000406"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1641000406"></script>
+    <script src="/js/jquery.sticky.js?1641000406"></script>
+    <script src="/js/featherlight.min.js?1641000406"></script>
+    <script src="/js/highlight.pack.js?1641000406"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1640999037"></script>
-    <script src="/js/learn.js?1640999037"></script>
-    <script src="/js/hugo-learn.js?1640999037"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1641000406"></script>
+    <script src="/js/learn.js?1641000406"></script>
+    <script src="/js/hugo-learn.js?1641000406"></script>
     
         
-            <script src="/mermaid/mermaid.js?1640999037"></script>
+            <script src="/mermaid/mermaid.js?1641000406"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
