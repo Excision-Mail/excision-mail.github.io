@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>main :: Excision Mail @ bsd.ac</title>
+    <title>Web Key Directory and Service :: Excision Mail @ bsd.ac</title>
 
     
     <link href="/css/nucleus.css?1640995989" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/categories/main/">
+  <body class="" data-url="/guides/web-key-directory/">
     <nav id="sidebar" class="">
 
 
@@ -234,7 +234,7 @@
   
     
     <li data-nav-id="/guides/" title="Extra guides" class="dd-item
-        
+        parent
         
         
         ">
@@ -323,7 +323,7 @@
  
   
     
-      <li data-nav-id="/guides/web-key-directory/" title="Web Key Directory and Service" class="dd-item ">
+      <li data-nav-id="/guides/web-key-directory/" title="Web Key Directory and Service" class="dd-item active">
         <a href="/guides/web-key-directory/">
         Web Key Directory and Service
         
@@ -406,7 +406,7 @@
             
           
           
-            <a href='/'>Excision Mail</a> > <a href='/categories/'>Categories</a> > main
+            <a href='/'>Excision Mail</a> > <a href='/guides/'>Extra guides</a> > Web Key Directory and Service
           
         
           
@@ -419,7 +419,11 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#neomutt">NeoMutt</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -435,26 +439,82 @@
           
             <h1>
               
-                category ::
-              
-              main
+              Web Key Directory and Service
             </h1>
           
 
         
 
 
+<p><strong>Web Key Directory</strong> is a method of public key discovery through HTTPS. <strong>Web Key Service</strong> is a protocol to allow users to publish their public key to a WKD server.</p>
+<p>Excision Mail comes with a setup of <a href="https://wiki.gnupg.org/WKD">Web Key Directory (WKD)</a> and GnuPG <a href="https://wiki.gnupg.org/WKS">Web Key Service (WKS)</a> which work out of the box for all providers and consumers, allowing publication of PGP keys on the mail hosting server, as opposed to centralized keyservers. One of the key advantages of PGP is to decentralize information to build a web of trust, hence hosting a WKD plays a vital part in ensuring a rich ecosystem. The <a href="https://datatracker.ietf.org/doc/html/draft-koch-openpgp-webkey-service">WKD/WKS RFC</a> details the technical specifications to <em>host</em> a WKD server. This documentaion only goes over the user side setup, showing how a user can publish their PGP key to the Excision Mail system.</p>
+<p>To publish a key using WKS, a mail client is required. Many mail clients support the GnuPG-WKS protocol, such as <a href="https://apps.kde.org/kmail2/">KMail</a>, <a href="http://www.mutt.org/">mutt</a>, <a href="https://neomutt.org/">neomutt</a>, <a href="https://www.claws-mail.org/">Claws Mail</a> (through the <a href="https://www.enigmail.net/index.php/en/">enigmail</a> plugin).</p>
+<h2 id="neomutt">NeoMutt</h2>
+<p>This configuration setup uses <a href="https://github.com/LukeSmithxyz/mutt-wizard">mutt-wizard</a> a very handy setup to configure NeoMutt, which should work for most users. The OpenBSD package also supports WKD/WKS out of the box.</p>
+<p>The general outline of the process:</p>
+<ol>
+<li>Add an account using mutt-wizard.<br>
+While adding an account, specify the port as <code>587</code>.</li>
+<li>Create a GnuPG key (or skip if already exists).</li>
+<li>Start neomutt and start the key publishing request - <code>Alt + g</code>.</li>
+<li>Receive a verification request.
+Press <code>o</code> (small-oh) to sync mail.</li>
+<li>Send a mail confirming publication - <code>Alt + h</code> (while selecting the confirmation email).</li>
+<li>Receive a return confirmation mail.</li>
+<li>Manually verify that the key has been published</li>
+</ol>
+<pre tabindex="0"><code>$ mw -a test-user@bsd.ac -S 587
+Give your email server's IMAP address (excluding the port number):
+imap.bsd.ac
+Give your email server's SMTP address (excluding the port number):
+smtp.bsd.ac
+Enter password for test-user@bsd.ac: 
+Retype password for test-user@bsd.ac: 
+test-user (account #1) added successfully.
 
+$ mw -l
+	1  test-user@bsd.ac
 
+$ gpg --quick-generate-key test-user@bsd.ac
+About to create a key for:
+    &quot;test-user@bsd.ac&quot;
 
-<ul>
-	
-		<li><a href="/">Excision Mail</a></li>
-	
-</ul>
+Continue? (Y/n)
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+...
+...
+...
 
+$ neomutt
 
-<footer class=" footline" >
+&lt;Alt + g&gt;
+...
+...
+...
+Enter email ID of user to publish: test-user@bsd.ac
+Enter fingerprint of GPG key to publish: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+gpg-wks-client: submitting request to 'wks@bsd.ac'
+
+&lt;o&gt; # small-oh
+
+	1 Ns+   21/10/31 06:58PM wks@bsd Confirm your key publication (2.4K)
+
+&lt;Alt + h&gt; # the confirmation request should be selected
+
+&lt;o&gt; # small-oh
+
+	1 NP+   21/10/31 07:02PM wks@bsd Your key has been published (1.5K)
+
+</code></pre>
+
+<footer class="footline">
 	
 </footer>
 
@@ -572,6 +632,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -584,6 +645,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -632,6 +696,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -656,8 +721,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/guides/manualdns/" title="Manual DNS setup"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/install/" title="Installation overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/guides/secondary/" title="Secondary nameserver overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -689,3 +756,4 @@
 
   </body>
 </html>
+

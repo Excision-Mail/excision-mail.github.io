@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.91.0" />
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>System Backups :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1623435516" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1623435516" rel="stylesheet">
-    <link href="/css/hybrid.css?1623435516" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1623435516" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1623435516" rel="stylesheet">
-    <link href="/css/auto-complete.css?1623435516" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1623435516" rel="stylesheet">
-    <link href="/css/theme.css?1623435516" rel="stylesheet">
-    <link href="/css/tabs.css?1623435516" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1623435516" rel="stylesheet">
+    <link href="/css/nucleus.css?1640995989" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1640995989" rel="stylesheet">
+    <link href="/css/hybrid.css?1640995989" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1640995989" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1640995989" rel="stylesheet">
+    <link href="/css/auto-complete.css?1640995989" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1640995989" rel="stylesheet">
+    <link href="/css/theme.css?1640995989" rel="stylesheet">
+    <link href="/css/tabs.css?1640995989" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1640995989" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1623435516" rel="stylesheet">
+    <link href="/css/theme-excision.css?1640995989" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1623435516"></script>
+    <script src="/js/jquery-3.3.1.min.js?1640995989"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -72,14 +72,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1623435516"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1623435516"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1640995989"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1640995989"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1623435516"></script>
+<script type="text/javascript" src="/js/search.js?1640995989"></script>
 
     
   </div>
@@ -314,6 +314,27 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/web-key-directory/" title="Web Key Directory and Service" class="dd-item ">
+        <a href="/guides/web-key-directory/">
+        Web Key Directory and Service
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
       
@@ -423,7 +444,7 @@
 
 	<h2 id="ifiles">Important non-replaceable files</h2>
 <p>These files are generated over time when using Excision and cannot be restored by the ansible scripts:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># excision config files folder</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># excision config files folder</span>
 /etc/excision/
 
 <span style="color:#75715e"># excision-passwd home folder</span>
@@ -441,7 +462,7 @@
 /var/excision/
 </code></pre></div><h2 id="restic">Example backup using restic</h2>
 <p>Here is a sample configuration using <a href="https://restic.net/">restic</a> which does a daily back up to a remote repo, using <code>/etc/daily.local</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># set up a restic repo somewhere which can be accessed</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># set up a restic repo somewhere which can be accessed</span>
 <span style="color:#75715e"># using your desired method</span>
 RESTIC_REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sftp:truenas:/mnt/Media/backups/mail.aisha.cc&#34;</span>
 env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> <span style="color:#ae81ff">\
@@ -477,7 +498,7 @@ NLINES<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>w
 rm -f <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
 unset RDIFF_FILE RESTIC_REPO NLINES
 </code></pre></div><p>The recommended <code>restic.include</code> :</p>
-<pre><code>/bin
+<pre tabindex="0"><code>/bin
 /etc
 /home
 /root
@@ -485,7 +506,7 @@ unset RDIFF_FILE RESTIC_REPO NLINES
 /usr
 /var
 </code></pre><p>and <code>/etc/restic.exclude</code> :</p>
-<pre><code>/var/run
+<pre tabindex="0"><code>/var/run
 </code></pre>
 
 
@@ -669,6 +690,22 @@ unset RDIFF_FILE RESTIC_REPO NLINES
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -694,19 +731,19 @@ unset RDIFF_FILE RESTIC_REPO NLINES
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1623435516"></script>
-    <script src="/js/perfect-scrollbar.min.js?1623435516"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1623435516"></script>
-    <script src="/js/jquery.sticky.js?1623435516"></script>
-    <script src="/js/featherlight.min.js?1623435516"></script>
-    <script src="/js/highlight.pack.js?1623435516"></script>
+    <script src="/js/clipboard.min.js?1640995989"></script>
+    <script src="/js/perfect-scrollbar.min.js?1640995989"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1640995989"></script>
+    <script src="/js/jquery.sticky.js?1640995989"></script>
+    <script src="/js/featherlight.min.js?1640995989"></script>
+    <script src="/js/highlight.pack.js?1640995989"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1623435516"></script>
-    <script src="/js/learn.js?1623435516"></script>
-    <script src="/js/hugo-learn.js?1623435516"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1640995989"></script>
+    <script src="/js/learn.js?1640995989"></script>
+    <script src="/js/hugo-learn.js?1640995989"></script>
     
         
-            <script src="/mermaid/mermaid.js?1623435516"></script>
+            <script src="/mermaid/mermaid.js?1640995989"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

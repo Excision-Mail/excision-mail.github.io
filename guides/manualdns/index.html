@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.91.0" />
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>Manual DNS setup :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1623435516" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1623435516" rel="stylesheet">
-    <link href="/css/hybrid.css?1623435516" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1623435516" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1623435516" rel="stylesheet">
-    <link href="/css/auto-complete.css?1623435516" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1623435516" rel="stylesheet">
-    <link href="/css/theme.css?1623435516" rel="stylesheet">
-    <link href="/css/tabs.css?1623435516" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1623435516" rel="stylesheet">
+    <link href="/css/nucleus.css?1640995989" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1640995989" rel="stylesheet">
+    <link href="/css/hybrid.css?1640995989" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1640995989" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1640995989" rel="stylesheet">
+    <link href="/css/auto-complete.css?1640995989" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1640995989" rel="stylesheet">
+    <link href="/css/theme.css?1640995989" rel="stylesheet">
+    <link href="/css/tabs.css?1640995989" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1640995989" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1623435516" rel="stylesheet">
+    <link href="/css/theme-excision.css?1640995989" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1623435516"></script>
+    <script src="/js/jquery-3.3.1.min.js?1640995989"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -72,14 +72,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1623435516"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1623435516"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1640995989"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1640995989"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1623435516"></script>
+<script type="text/javascript" src="/js/search.js?1640995989"></script>
 
     
   </div>
@@ -314,6 +314,27 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/web-key-directory/" title="Web Key Directory and Service" class="dd-item ">
+        <a href="/guides/web-key-directory/">
+        Web Key Directory and Service
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
       
@@ -443,7 +464,7 @@ I have outlined the necessary steps for creating records at your <strong>DNS pro
 </ul>
 <p><strong>TTL</strong> is the default ttl you would like to put, in Excision it is set to <em>10800</em>.</p>
 <h2 id="cname-records-for-sdomain-dot-xyz">CNAME records for <em>sdomain.xyz</em></h2>
-<pre><code class="language-nil" data-lang="nil">autoconfig.sdomain.xyz.          TTL IN CNAME excision.pdomain.abc.
+<pre tabindex="0"><code class="language-nil" data-lang="nil">autoconfig.sdomain.xyz.          TTL IN CNAME excision.pdomain.abc.
 autodiscover.sdomain.xyz.        TTL IN CNAME excision.pdomain.abc.
 openpgpkey.sdomain.xyz.          TTL IN CNAME excision.pdomain.abc.
 wkd.sdomain.xyz.                 TTL IN CNAME excision.pdomain.abc.
@@ -455,10 +476,10 @@ webmail.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
 calendar.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
 contacts.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
 </code></pre><h2 id="mx-records-for-sdomain-dot-xyz">MX records for <em>sdomain.xyz</em></h2>
-<pre><code class="language-nil" data-lang="nil">@                                TTL IN MX 0 excision.pdomain.abc.
+<pre tabindex="0"><code class="language-nil" data-lang="nil">@                                TTL IN MX 0 excision.pdomain.abc.
 </code></pre><p>This tells the world that the mail for <em>sdomain.xyz</em> is handled by <em>excision.pdomain.abc</em></p>
 <h2 id="txt-records-for-sdomain-dot-xyz">TXT records for <em>sdomain.xyz</em></h2>
-<pre><code class="language-nil" data-lang="nil">sdomain.xyz.                     TTL IN TXT &quot;v=spf1 mx:pdomain.abc -all&quot;
+<pre tabindex="0"><code class="language-nil" data-lang="nil">sdomain.xyz.                     TTL IN TXT &quot;v=spf1 mx:pdomain.abc -all&quot;
 _dmarc.sdomain.xyz.              TTL IN TXT &quot;v=DMARC1;p=reject;pct=100;rua=mailto:dmarcreports@pdomain.abc&quot;
 _smtp._tls.sdomain.xyz.          TTL IN TXT &quot;v=TLSRPTv1;rua=mailto:tlsreports@pdomain.abc;&quot;
 excision._domainkey.sdomain.xyz. TTL IN TXT &quot;v=DKIM1;k=rsa;p={EXCISIONKEY}&quot;
@@ -470,19 +491,19 @@ to fit a large key into a TXT record. The work around this is to store more than
 in a DNS record (yes, this is possible to do, but the implementation depends on your
 hosting providers UI).<br />
 Excision breaks down the record into correct sizes and stores it in the text files above.</p>
-<pre><code class="language-nil" data-lang="nil">( &quot;v=DKIM1;k=rsa;p=OQWcn812jW...&quot; &quot;....UnsdU;&quot; )
+<pre tabindex="0"><code class="language-nil" data-lang="nil">( &quot;v=DKIM1;k=rsa;p=OQWcn812jW...&quot; &quot;....UnsdU;&quot; )
 </code></pre><h2 id="srv-records-for-sdomain-dot-xyz">SRV records for <em>sdomain.xyz</em></h2>
 <p>Needed for setting up older client software (and also Microsoft/iOS)</p>
-<pre><code class="language-nil" data-lang="nil">_submissions._tcp.sdomain.xyz.   TTL IN SRV 0 1 465 smtp.sdomain.xyz.
+<pre tabindex="0"><code class="language-nil" data-lang="nil">_submissions._tcp.sdomain.xyz.   TTL IN SRV 0 1 465 smtp.sdomain.xyz.
 _submission._tcp.sdomain.xyz.    TTL IN SRV 0 1 587 smtp.sdomain.xyz.
 _imaps._tcp.sdomain.xyz.         TTL IN SRV 0 1 993 imap.sdomain.xyz.
 _pop3s._tcp.sdomain.xyz.         TTL IN SRV 0 1 995 pop3.sdomain.xyz.
 _imap._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONAL, depending on DNS provider compatibility)
 _pop3._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONAL, depending on DNS provider compatibility)
 </code></pre><h2 id="extra-srv-records-for-setting-up-openpgpkey-using-gnupg">Extra SRV records for setting up openpgpkey using GnuPG</h2>
-<pre><code class="language-nil" data-lang="nil">_openpgpkey._tcp.sdomain.xyz.    TTL IN SRV 0 0 443 wkd.sdomain.xyz.
+<pre tabindex="0"><code class="language-nil" data-lang="nil">_openpgpkey._tcp.sdomain.xyz.    TTL IN SRV 0 0 443 wkd.sdomain.xyz.
 </code></pre><h2 id="srv-records-for-autodiscover-in-microsoft">SRV records for autodiscover in Microsoft</h2>
-<pre><code class="language-nil" data-lang="nil">_autodiscover._tcp.sdomain.xyz.  TTL IN SRV 0 0 443 autodiscover.sdomain.xyz.
+<pre tabindex="0"><code class="language-nil" data-lang="nil">_autodiscover._tcp.sdomain.xyz.  TTL IN SRV 0 0 443 autodiscover.sdomain.xyz.
 </code></pre>
 
 <footer class="footline">
@@ -664,6 +685,25 @@ _pop3._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONA
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -679,7 +719,7 @@ _pop3._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONA
 			<a class="nav nav-prev" href="/guides/freedns/" title="FreeDNS setup"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/guides/secondary/" title="Secondary nameserver overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/guides/web-key-directory/" title="Web Key Directory and Service" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -689,19 +729,19 @@ _pop3._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONA
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1623435516"></script>
-    <script src="/js/perfect-scrollbar.min.js?1623435516"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1623435516"></script>
-    <script src="/js/jquery.sticky.js?1623435516"></script>
-    <script src="/js/featherlight.min.js?1623435516"></script>
-    <script src="/js/highlight.pack.js?1623435516"></script>
+    <script src="/js/clipboard.min.js?1640995989"></script>
+    <script src="/js/perfect-scrollbar.min.js?1640995989"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1640995989"></script>
+    <script src="/js/jquery.sticky.js?1640995989"></script>
+    <script src="/js/featherlight.min.js?1640995989"></script>
+    <script src="/js/highlight.pack.js?1640995989"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1623435516"></script>
-    <script src="/js/learn.js?1623435516"></script>
-    <script src="/js/hugo-learn.js?1623435516"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1640995989"></script>
+    <script src="/js/learn.js?1640995989"></script>
+    <script src="/js/hugo-learn.js?1640995989"></script>
     
         
-            <script src="/mermaid/mermaid.js?1623435516"></script>
+            <script src="/mermaid/mermaid.js?1640995989"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

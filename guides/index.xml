@@ -26,8 +26,8 @@
       <description>FreeDNS (afraid.org) Example setup for stealth master configuration using freedns.afraid.org
 FreeDNS configuration First make an account on FreeDNS and then go to add backup dns:
 https://freedns.afraid.org/secondary/add.php
-  Secondary servers The information related to secondary nameservers is available on their website: https://freedns.afraid.org/secondary/instructions.php
-  NOTE: This still hasn&amp;rsquo;t given you the ip of ns2.afraid.org. You should poke around on their website to find the relevant information or use the host command on OpenBSD to get the ip addresses of ns2.</description>
+ Secondary servers The information related to secondary nameservers is available on their website: https://freedns.afraid.org/secondary/instructions.php
+ NOTE: This still hasn&amp;rsquo;t given you the ip of ns2.afraid.org. You should poke around on their website to find the relevant information or use the host command on OpenBSD to get the ip addresses of ns2.</description>
     </item>
     
     <item>
@@ -38,6 +38,16 @@ https://freedns.afraid.org/secondary/add.php
       <guid>/guides/manualdns/</guid>
       <description>If for some reason you have decided to not enable_nsd and want to do it manually, I have outlined the necessary steps for creating records at your DNS provider.
 Assumptions  Your domain name: pdomain.abc (for primary domain) You have configured an A record for excision.pdomain.abc, so that it points to the current server. Your host server has reverse DNS resolving to excision.pdomain.abc. You are configuring dns for a secondary domain sdomain.</description>
+    </item>
+    
+    <item>
+      <title>Web Key Directory and Service</title>
+      <link>/guides/web-key-directory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/web-key-directory/</guid>
+      <description>Web Key Directory is a method of public key discovery through HTTPS. Web Key Service is a protocol to allow users to publish their public key to a WKD server.
+Excision Mail comes with a setup of Web Key Directory (WKD) and GnuPG Web Key Service (WKS) which work out of the box for all providers and consumers, allowing publication of PGP keys on the mail hosting server, as opposed to centralized keyservers.</description>
     </item>
     
   </channel>
