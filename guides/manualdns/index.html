@@ -12,22 +12,22 @@
     <title>Manual DNS setup :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1642267677" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1642267677" rel="stylesheet">
-    <link href="/css/hybrid.css?1642267677" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1642267677" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1642267677" rel="stylesheet">
-    <link href="/css/auto-complete.css?1642267677" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1642267677" rel="stylesheet">
-    <link href="/css/theme.css?1642267677" rel="stylesheet">
-    <link href="/css/tabs.css?1642267677" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1642267677" rel="stylesheet">
+    <link href="/css/nucleus.css?1642268014" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1642268014" rel="stylesheet">
+    <link href="/css/hybrid.css?1642268014" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1642268014" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1642268014" rel="stylesheet">
+    <link href="/css/auto-complete.css?1642268014" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1642268014" rel="stylesheet">
+    <link href="/css/theme.css?1642268014" rel="stylesheet">
+    <link href="/css/tabs.css?1642268014" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1642268014" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1642267677" rel="stylesheet">
+    <link href="/css/theme-excision.css?1642268014" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1642267677"></script>
+    <script src="/js/jquery-3.3.1.min.js?1642268014"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1642267677"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1642267677"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1642268014"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1642268014"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1642267677"></script>
+<script type="text/javascript" src="/js/search.js?1642268014"></script>
 
     
   </div>
@@ -446,52 +446,19 @@
 </ul>
 <h2 id="subdomains">Subdomains used</h2>
 <p>The following subdomains are used and should point to <code>x.x.x.x</code> and <code>xx::xx</code>:</p>
-<table>
-<thead>
-<tr>
-<th>Subdomain</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>{{ mail }}</td>
-</tr>
-<tr>
-<td>autoconfig</td>
-</tr>
-<tr>
-<td>autodiscover</td>
-</tr>
-<tr>
-<td>dav</td>
-</tr>
-<tr>
-<td>imap</td>
-</tr>
-<tr>
-<td>mta-sts</td>
-</tr>
-<tr>
-<td>openpgpkey</td>
-</tr>
-<tr>
-<td>pop3</td>
-</tr>
-<tr>
-<td>rspamd</td>
-</tr>
-<tr>
-<td>smtp</td>
-</tr>
-<tr>
-<td>webmail</td>
-</tr>
-<tr>
-<td>wkd</td>
-</tr>
-</tbody>
-</table>
-<h2 id="mx-records">MX records</h2>
+<pre tabindex="0"><code>| {{ mail }}   |
+| autoconfig   |
+| autodiscover |
+| dav          |
+| imap         |
+| mta-sts      |
+| openpgpkey   |
+| pop3         |
+| rspamd       |
+| smtp         |
+| webmail      |
+| wkd          |
+</code></pre><h2 id="mx-records">MX records</h2>
 <table>
 <thead>
 <tr>
@@ -501,8 +468,8 @@
 </thead>
 <tbody>
 <tr>
-<td>@</td>
-<td>{{ mail }}.domain.xyz.</td>
+<td><code>@</code></td>
+<td><code>{{ mail }}.domain.xyz.</code></td>
 </tr>
 </tbody>
 </table>
@@ -523,88 +490,88 @@
 </thead>
 <tbody>
 <tr>
-<td>_autodiscover._tcp</td>
-<td>0</td>
-<td>0</td>
-<td>443</td>
-<td>autodiscover.domain.xyz.</td>
+<td><code>_autodiscover._tcp</code></td>
+<td><code>0</code></td>
+<td><code>0</code></td>
+<td><code>443</code></td>
+<td><code>autodiscover.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_submissions._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>465</td>
-<td>smtp.domain.xyz.</td>
+<td><code>_submissions._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>465</code></td>
+<td><code>smtp.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_submission._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>587</td>
-<td>smtp.domain.xyz.</td>
+<td><code>_submission._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>587</code></td>
+<td><code>smtp.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_imaps._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>993</td>
-<td>imap.domain.xyz.</td>
+<td><code>_imaps._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>993</code></td>
+<td><code>imap.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_pop3s._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>995</td>
-<td>pop3.domain.xyz.</td>
+<td><code>_pop3s._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>995</code></td>
+<td><code>pop3.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_carddav._tcp</td>
-<td>5</td>
-<td>1</td>
-<td>80</td>
-<td>dav.domain.xyz.</td>
+<td><code>_carddav._tcp</code></td>
+<td><code>5</code></td>
+<td><code>1</code></td>
+<td><code>80 </code></td>
+<td><code>dav.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_carddavs._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>443</td>
-<td>dav.domain.xyz.</td>
+<td><code>_carddavs._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>443</code></td>
+<td><code>dav.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_caldav._tcp</td>
-<td>5</td>
-<td>1</td>
-<td>80</td>
-<td>dav.domain.xyz.</td>
+<td><code>_caldav._tcp</code></td>
+<td><code>5</code></td>
+<td><code>1</code></td>
+<td><code>80 </code></td>
+<td><code>dav.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_caldavs._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>443</td>
-<td>dav.domain.xyz.</td>
+<td><code>_caldavs._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>443</code></td>
+<td><code>dav.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_ischedules._tcp</td>
-<td>0</td>
-<td>1</td>
-<td>443</td>
-<td>dav.domain.xyz.</td>
+<td><code>_ischedules._tcp</code></td>
+<td><code>0</code></td>
+<td><code>1</code></td>
+<td><code>443</code></td>
+<td><code>dav.domain.xyz.</code></td>
 </tr>
 <tr>
-<td>_imap._tcp</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>.  (OPTIONAL, depending on DNS provider compatibility)</td>
+<td><code>_imap._tcp</code></td>
+<td><code>0</code></td>
+<td><code>0</code></td>
+<td><code>0</code></td>
+<td><code>.</code>  (OPTIONAL, depending on DNS provider compatibility)</td>
 </tr>
 <tr>
-<td>_pop3._tcp</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>.  (OPTIONAL, depending on DNS provider compatibility)</td>
+<td><code>_pop3._tcp</code></td>
+<td><code>0</code></td>
+<td><code>0</code></td>
+<td><code>0</code></td>
+<td><code>.</code>  (OPTIONAL, depending on DNS provider compatibility)</td>
 </tr>
 </tbody>
 </table>
@@ -618,31 +585,32 @@
 </thead>
 <tbody>
 <tr>
-<td>@</td>
-<td>&ldquo;v=spf1 mx:pdomain.abc -all&rdquo;</td>
+<td><code>@</code></td>
+<td><code>&quot;v=spf1 mx:pdomain.abc -all&quot;</code></td>
 </tr>
 <tr>
-<td>_dmarc</td>
+<td><code>_dmarc</code></td>
 <td>&ldquo;v=DMARC1;p=reject;pct=100;rua=mailto:dmarcreports@domain.xyz&rdquo;</td>
 </tr>
 <tr>
-<td>_smtp._tls</td>
+<td><code>_smtp._tls</code></td>
 <td>&ldquo;v=TLSRPTv1;rua=mailto:tlsreports@domain.xyz;&rdquo;</td>
 </tr>
 <tr>
-<td>_mta-sts</td>
+<td><code>_mta-sts</code></td>
 <td>&ldquo;v=STSv1;id={MTA-STS-ID};&rdquo;</td>
 </tr>
 <tr>
-<td>excisionRSA._domainkey</td>
+<td><code>excisionRSA._domainkey</code></td>
 <td>&ldquo;v=DKIM1;k=rsa;p={EXCISIONKEY}&rdquo;</td>
 </tr>
 <tr>
-<td>davRSA._domainkey</td>
+<td><code>davRSA._domainkey</code></td>
 <td>&ldquo;k=rsa;t=s;p={DAVKEY}&rdquo;</td>
 </tr>
 </tbody>
 </table>
+<p>The <strong>{MTA-STS-ID}</strong> is an ID which should only increase over time. It represents the last time the MTA-STS information for a domain was changed. Realistically, this can be set to the date and time of creating (or modifying) this record, e.g. <em><code>20220114T165521</code></em>.</p>
 <p><strong>{EXCISIONKEY}</strong> and <strong>{DAVKEY}</strong> are the keys stored in <strong>/etc/excision/dkim/excisionRSA.domain.xyz.pub</strong> and <strong>/etc/excision/dkim/davRSA.domain.xyz.pub</strong>, respectively. The text records are created and stored in <strong>/etc/excision/dkim/excisionRSA.domain.xyz.txt</strong> and <strong>/etc/excision/dkim/davRSA.domain.xyz.txt</strong>.</p>
 
 <div class="notices note" ><p>Depending on the DNS provider the key generated by Excision is going to be too
@@ -879,19 +847,19 @@ Excision Mail breaks down the record into correct sizes and stores it in the tex
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1642267677"></script>
-    <script src="/js/perfect-scrollbar.min.js?1642267677"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1642267677"></script>
-    <script src="/js/jquery.sticky.js?1642267677"></script>
-    <script src="/js/featherlight.min.js?1642267677"></script>
-    <script src="/js/highlight.pack.js?1642267677"></script>
+    <script src="/js/clipboard.min.js?1642268014"></script>
+    <script src="/js/perfect-scrollbar.min.js?1642268014"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1642268014"></script>
+    <script src="/js/jquery.sticky.js?1642268014"></script>
+    <script src="/js/featherlight.min.js?1642268014"></script>
+    <script src="/js/highlight.pack.js?1642268014"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1642267677"></script>
-    <script src="/js/learn.js?1642267677"></script>
-    <script src="/js/hugo-learn.js?1642267677"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1642268014"></script>
+    <script src="/js/learn.js?1642268014"></script>
+    <script src="/js/hugo-learn.js?1642268014"></script>
     
         
-            <script src="/mermaid/mermaid.js?1642267677"></script>
+            <script src="/mermaid/mermaid.js?1642268014"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

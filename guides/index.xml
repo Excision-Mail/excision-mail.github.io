@@ -38,7 +38,7 @@ https://freedns.afraid.org/secondary/add.php
       <guid>/guides/manualdns/</guid>
       <description>If enable_dns has not been selected and DNS is managed manually, the DNS records described in the following sections must be enabled.
 Assumptions  Domain name: domain.xyz IPv4 address: x.x.x.x IPv6 address: xx::xx Mail subdomain: {{ mail }}  Subdomains used The following subdomains are used and should point to x.x.x.x and xx::xx:
-   Subdomain     {{ mail }}   autoconfig   autodiscover   dav   imap   mta-sts   openpgpkey   pop3   rspamd   smtp   webmail   wkd    MX records    Subdomain Mail provider     @ {{ mail }}.</description>
+| {{ mail }} | | autoconfig | | autodiscover | | dav | | imap | | mta-sts | | openpgpkey | | pop3 | | rspamd | | smtp | | webmail | | wkd | MX records    Subdomain Mail provider     @ {{ mail }}.</description>
     </item>
     
     <item>
