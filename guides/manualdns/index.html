@@ -12,22 +12,22 @@
     <title>Manual DNS setup :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1641003060" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1641003060" rel="stylesheet">
-    <link href="/css/hybrid.css?1641003060" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1641003060" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1641003060" rel="stylesheet">
-    <link href="/css/auto-complete.css?1641003060" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1641003060" rel="stylesheet">
-    <link href="/css/theme.css?1641003060" rel="stylesheet">
-    <link href="/css/tabs.css?1641003060" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1641003060" rel="stylesheet">
+    <link href="/css/nucleus.css?1642267125" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1642267125" rel="stylesheet">
+    <link href="/css/hybrid.css?1642267125" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1642267125" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1642267125" rel="stylesheet">
+    <link href="/css/auto-complete.css?1642267125" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1642267125" rel="stylesheet">
+    <link href="/css/theme.css?1642267125" rel="stylesheet">
+    <link href="/css/tabs.css?1642267125" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1642267125" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1641003060" rel="stylesheet">
+    <link href="/css/theme-excision.css?1642267125" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1641003060"></script>
+    <script src="/js/jquery-3.3.1.min.js?1642267125"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1641003060"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1641003060"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1642267125"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1642267125"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1641003060"></script>
+<script type="text/javascript" src="/js/search.js?1642267125"></script>
 
     
   </div>
@@ -408,12 +408,10 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#assumptions">Assumptions</a></li>
-    <li><a href="#cname-records-for-sdomain-dot-xyz">CNAME records for <em>sdomain.xyz</em></a></li>
-    <li><a href="#mx-records-for-sdomain-dot-xyz">MX records for <em>sdomain.xyz</em></a></li>
-    <li><a href="#txt-records-for-sdomain-dot-xyz">TXT records for <em>sdomain.xyz</em></a></li>
-    <li><a href="#srv-records-for-sdomain-dot-xyz">SRV records for <em>sdomain.xyz</em></a></li>
-    <li><a href="#extra-srv-records-for-setting-up-openpgpkey-using-gnupg">Extra SRV records for setting up openpgpkey using GnuPG</a></li>
-    <li><a href="#srv-records-for-autodiscover-in-microsoft">SRV records for autodiscover in Microsoft</a></li>
+    <li><a href="#subdomains">Subdomains used</a></li>
+    <li><a href="#mx-records">MX records</a></li>
+    <li><a href="#srv-records">SRV records</a></li>
+    <li><a href="#txt-records">TXT records</a></li>
   </ul>
 </nav>
     </div>
@@ -438,59 +436,81 @@
         
 
 
-<p>If for some reason you have decided to not <em>enable_nsd</em> and want to do it manually,
-I have outlined the necessary steps for creating records at your <strong>DNS provider</strong>.</p>
+<p>If <em>enable_dns</em> has not been selected and DNS is managed manually, the DNS records described in the following sections must be enabled.</p>
 <h2 id="assumptions">Assumptions</h2>
 <ul>
-<li>Your domain name: <em>pdomain.abc</em> (for primary domain)</li>
-<li>You have configured an <strong>A record</strong> for <em>excision.pdomain.abc</em>, so that it points to the current server.</li>
-<li>Your host server has <strong>reverse DNS</strong> resolving to <em>excision.pdomain.abc</em>.</li>
-<li>You are configuring dns for a secondary domain <em>sdomain.xyz</em>.<br />
-(It does not need to be secondary, <em>sdomain.xyz</em> could be the same as <em>pdomain.abc</em>)</li>
+<li>Domain name: <em>domain.xyz</em></li>
+<li>IPv4 address: <code>x.x.x.x</code></li>
+<li>IPv6 address: <code>xx::xx</code></li>
+<li>Mail subdomain: <code>{{ mail }}</code></li>
 </ul>
-<p><strong>TTL</strong> is the default ttl you would like to put, in Excision it is set to <em>10800</em>.</p>
-<h2 id="cname-records-for-sdomain-dot-xyz">CNAME records for <em>sdomain.xyz</em></h2>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">autoconfig.sdomain.xyz.          TTL IN CNAME excision.pdomain.abc.
-autodiscover.sdomain.xyz.        TTL IN CNAME excision.pdomain.abc.
-openpgpkey.sdomain.xyz.          TTL IN CNAME excision.pdomain.abc.
-wkd.sdomain.xyz.                 TTL IN CNAME excision.pdomain.abc.
-mta-sts.sdomain.xyz.             TTL IN CNAME excision.pdomain.abc.
-imap.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
-pop3.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
-smtp.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
-webmail.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
-calendar.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
-contacts.sdomain.xyz.                TTL IN CNAME excision.pdomain.abc.
-</code></pre><h2 id="mx-records-for-sdomain-dot-xyz">MX records for <em>sdomain.xyz</em></h2>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">@                                TTL IN MX 0 excision.pdomain.abc.
-</code></pre><p>This tells the world that the mail for <em>sdomain.xyz</em> is handled by <em>excision.pdomain.abc</em></p>
-<h2 id="txt-records-for-sdomain-dot-xyz">TXT records for <em>sdomain.xyz</em></h2>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">sdomain.xyz.                     TTL IN TXT &quot;v=spf1 mx:pdomain.abc -all&quot;
-_dmarc.sdomain.xyz.              TTL IN TXT &quot;v=DMARC1;p=reject;pct=100;rua=mailto:dmarcreports@pdomain.abc&quot;
-_smtp._tls.sdomain.xyz.          TTL IN TXT &quot;v=TLSRPTv1;rua=mailto:tlsreports@pdomain.abc;&quot;
-excision._domainkey.sdomain.xyz. TTL IN TXT &quot;v=DKIM1;k=rsa;p={EXCISIONKEY}&quot;
-</code></pre><p>where <strong>{EXCISIONKEY}</strong> is the key stored in <strong>/etc/excision/dkim/excision.pdomain.abc.pub</strong>
-and <strong>/etc/excision/dkim/excision.pdomain.abc.txt</strong>.</p>
-<p><strong>NOTE</strong>: Depending on your DNS provider the key generated by Excision is going to be too
-large to fit in one record. You will have to contact your DNS provider to see how
-to fit a large key into a TXT record. The work around this is to store more than one string
-in a DNS record (yes, this is possible to do, but the implementation depends on your
-hosting providers UI).<br />
-Excision breaks down the record into correct sizes and stores it in the text files above.</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">( &quot;v=DKIM1;k=rsa;p=OQWcn812jW...&quot; &quot;....UnsdU;&quot; )
-</code></pre><h2 id="srv-records-for-sdomain-dot-xyz">SRV records for <em>sdomain.xyz</em></h2>
-<p>Needed for setting up older client software (and also Microsoft/iOS)</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">_submissions._tcp.sdomain.xyz.   TTL IN SRV 0 1 465 smtp.sdomain.xyz.
-_submission._tcp.sdomain.xyz.    TTL IN SRV 0 1 587 smtp.sdomain.xyz.
-_imaps._tcp.sdomain.xyz.         TTL IN SRV 0 1 993 imap.sdomain.xyz.
-_pop3s._tcp.sdomain.xyz.         TTL IN SRV 0 1 995 pop3.sdomain.xyz.
-_imap._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONAL, depending on DNS provider compatibility)
-_pop3._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONAL, depending on DNS provider compatibility)
-</code></pre><h2 id="extra-srv-records-for-setting-up-openpgpkey-using-gnupg">Extra SRV records for setting up openpgpkey using GnuPG</h2>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">_openpgpkey._tcp.sdomain.xyz.    TTL IN SRV 0 0 443 wkd.sdomain.xyz.
-</code></pre><h2 id="srv-records-for-autodiscover-in-microsoft">SRV records for autodiscover in Microsoft</h2>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">_autodiscover._tcp.sdomain.xyz.  TTL IN SRV 0 0 443 autodiscover.sdomain.xyz.
+<h2 id="subdomains">Subdomains used</h2>
+<p>The following subdomains are used and should point to <code>x.x.x.x</code> and <code>xx:xx</code>:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">| Subdomain    |
+|--------------|
+| {{ mail }}   |
+| autoconfig   |
+| autodiscover |
+| dav          |
+| imap         |
+| mta-sts      |
+| openpgpkey   |
+| pop3         |
+| rspamd       |
+| smtp         |
+| webmail      |
+| wkd          |
+
+</code></pre><h2 id="mx-records">MX records</h2>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">
+| Subdomain | Mail provider         |
+|-----------|-----------------------|
+| @         | {{ mail }}.domain.xyz.|
+
 </code></pre>
+<div class="notices note" ><p>If <code>domain.zyx</code> is an extra domain added on the server for <code>primary_domain.abc</code>, then the above <strong>MX</strong> record should point to <code>{{ mail }}.primary_domain.xyz</code>.</p>
+</div>
+
+<h2 id="srv-records">SRV records</h2>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">
+| SRV record         | Priority | Weight | Port | Domain                                                 |
+|--------------------|----------|--------|------|--------------------------------------------------------|
+| _autodiscover._tcp | 0        | 0      | 443  | autodiscover.domain.xyz.                               |
+| _submissions._tcp  | 0        | 1      | 465  | smtp.domain.xyz.                                       |
+| _submission._tcp   | 0        | 1      | 587  | smtp.domain.xyz.                                       |
+| _imaps._tcp        | 0        | 1      | 993  | imap.domain.xyz.                                       |
+| _pop3s._tcp        | 0        | 1      | 995  | pop3.domain.xyz.                                       |
+| _carddav._tcp      | 5        | 1      | 80   | dav.domain.xyz.                                        |
+| _carddavs._tcp     | 0        | 1      | 443  | dav.domain.xyz.                                        |
+| _caldav._tcp       | 5        | 1      | 80   | dav.domain.xyz.                                        |
+| _caldavs._tcp      | 0        | 1      | 443  | dav.domain.xyz.                                        |
+| _ischedules._tcp   | 0        | 1      | 443  | dav.domain.xyz.                                        |
+| _imap._tcp         | 0        | 0      | 0    | .  (OPTIONAL, depending on DNS provider compatibility) |
+| _pop3._tcp         | 0        | 0      | 0    | .  (OPTIONAL, depending on DNS provider compatibility) |
+
+</code></pre><h2 id="txt-records">TXT records</h2>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">
+| ID                     | TEXT                                                           |
+|------------------------|----------------------------------------------------------------|
+| @                      | &quot;v=spf1 mx:pdomain.abc -all&quot;                                   |
+| _dmarc                 | &quot;v=DMARC1;p=reject;pct=100;rua=mailto:dmarcreports@domain.xyz&quot; |
+| _smtp._tls             | &quot;v=TLSRPTv1;rua=mailto:tlsreports@domain.xyz;&quot;                 |
+| _mta-sts               | &quot;v=STSv1;id={MTA-STS-ID};&quot;                                     |
+| excisionRSA._domainkey | &quot;v=DKIM1;k=rsa;p={EXCISIONKEY}&quot;                                |
+| davRSA._domainkey      | &quot;k=rsa;t=s;p={DAVKEY}&quot;                                         |
+
+</code></pre><p><strong>{EXCISIONKEY}</strong> and <strong>{DAVKEY}</strong> are the keys stored in <strong>/etc/excision/dkim/excisionRSA.domain.xyz.pub</strong> and <strong>/etc/excision/dkim/davRSA.domain.xyz.pub</strong>, respectively. The text records are created and stored in <strong>/etc/excision/dkim/excisionRSA.domain.xyz.txt</strong> and <strong>/etc/excision/dkim/davRSA.domain.xyz.txt</strong>.</p>
+
+<div class="notices note" ><p>Depending on the DNS provider the key generated by Excision is going to be too
+large to fit in one record. The DNS providers documentation should show how
+to fit a large key into a TXT record. The work around this is to store more than one string
+in a DNS record (yes, this is possible to do, but the implementation depends on the hosting providers UI).
+<br />
+Excision Mail breaks down the record into correct sizes and stores it in the text files above in the following format:</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">( &quot;v=DKIM1;k=rsa;p=oQWCm252...&quot; &quot;....NnsPq;&quot; )
+</code></pre></div>
+
+
 
 <footer class="footline">
 	
@@ -715,19 +735,19 @@ _pop3._tcp.sdomain.xyz.          TTL IN SRV 0 0 0   .                   (OPTIONA
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1641003060"></script>
-    <script src="/js/perfect-scrollbar.min.js?1641003060"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1641003060"></script>
-    <script src="/js/jquery.sticky.js?1641003060"></script>
-    <script src="/js/featherlight.min.js?1641003060"></script>
-    <script src="/js/highlight.pack.js?1641003060"></script>
+    <script src="/js/clipboard.min.js?1642267125"></script>
+    <script src="/js/perfect-scrollbar.min.js?1642267125"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1642267125"></script>
+    <script src="/js/jquery.sticky.js?1642267125"></script>
+    <script src="/js/featherlight.min.js?1642267125"></script>
+    <script src="/js/highlight.pack.js?1642267125"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1641003060"></script>
-    <script src="/js/learn.js?1641003060"></script>
-    <script src="/js/hugo-learn.js?1641003060"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1642267125"></script>
+    <script src="/js/learn.js?1642267125"></script>
+    <script src="/js/hugo-learn.js?1642267125"></script>
     
         
-            <script src="/mermaid/mermaid.js?1641003060"></script>
+            <script src="/mermaid/mermaid.js?1642267125"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

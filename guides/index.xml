@@ -36,8 +36,9 @@ https://freedns.afraid.org/secondary/add.php
       <pubDate>Tue, 16 Jun 2020 15:48:49 -0400</pubDate>
       
       <guid>/guides/manualdns/</guid>
-      <description>If for some reason you have decided to not enable_nsd and want to do it manually, I have outlined the necessary steps for creating records at your DNS provider.
-Assumptions  Your domain name: pdomain.abc (for primary domain) You have configured an A record for excision.pdomain.abc, so that it points to the current server. Your host server has reverse DNS resolving to excision.pdomain.abc. You are configuring dns for a secondary domain sdomain.</description>
+      <description>If enable_dns has not been selected and DNS is managed manually, the DNS records described in the following sections must be enabled.
+Assumptions  Domain name: domain.xyz IPv4 address: x.x.x.x IPv6 address: xx::xx Mail subdomain: {{ mail }}  Subdomains used The following subdomains are used and should point to x.x.x.x and xx:xx:
+| Subdomain | |--------------| | {{ mail }} | | autoconfig | | autodiscover | | dav | | imap | | mta-sts | | openpgpkey | | pop3 | | rspamd | | smtp | | webmail | | wkd | MX records | Subdomain | Mail provider | |-----------|-----------------------| | @ | {{ mail }}.</description>
     </item>
     
     <item>
