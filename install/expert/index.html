@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.91.0" />
+    <meta name="generator" content="Hugo 0.93.3" />
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>Expert Installation :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1642268189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1642268189" rel="stylesheet">
-    <link href="/css/hybrid.css?1642268189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1642268189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1642268189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1642268189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1642268189" rel="stylesheet">
-    <link href="/css/theme.css?1642268189" rel="stylesheet">
-    <link href="/css/tabs.css?1642268189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1642268189" rel="stylesheet">
+    <link href="/css/nucleus.css?1653774508" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653774508" rel="stylesheet">
+    <link href="/css/hybrid.css?1653774508" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653774508" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653774508" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653774508" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1653774508" rel="stylesheet">
+    <link href="/css/theme.css?1653774508" rel="stylesheet">
+    <link href="/css/tabs.css?1653774508" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1653774508" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1642268189" rel="stylesheet">
+    <link href="/css/theme-excision.css?1653774508" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1642268189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1653774508"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1642268189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1642268189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1653774508"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1653774508"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1642268189"></script>
+<script type="text/javascript" src="/js/search.js?1653774508"></script>
 
     
   </div>
@@ -588,215 +588,215 @@ The only catch here is that the installation is going to be on two separate serv
 
 <h2 id="vars">Set up vars.yml</h2>
 <p>An example <code>vars.yml</code> for the above installation:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">mail.aisha.cc</span>
-<span style="color:#f92672">admin</span>: <span style="color:#ae81ff">aisha</span>
-
-<span style="color:#f92672">domains</span>:
-  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">aisha.cc</span>
-    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
-  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">epsilonknot.xyz</span>
-    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
-  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">bsd.ac</span>
-    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">enable_nsd</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">username_delimiter</span>: <span style="color:#e6db74">&#34;.&#34;</span>
-
-<span style="color:#f92672">enable_spamd</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">rspamd_enable_pretrain</span>: <span style="color:#66d9ef">true</span>
-
-<span style="color:#f92672">private_interface</span>: <span style="color:#ae81ff">wg0</span>
-<span style="color:#f92672">enable_extras</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">extras_not_home</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#f92672">extras_interface</span>: <span style="color:#ae81ff">wg0</span>
-<span style="color:#f92672">extras_ip</span>: <span style="color:#ae81ff">10.7.0.3</span>
-
-<span style="color:#75715e"># needed as second server is a -current server</span>
-<span style="color:#75715e"># which has a newer version of php set as default</span>
-<span style="color:#f92672">php_pkg_version</span>: <span style="color:#ae81ff">7.3.22</span>
-
-<span style="color:#f92672">pgsql_password_roundcube</span>: <span style="color:#ae81ff">prollySOMEpassword</span>
-<span style="color:#f92672">rc_encryption_key</span>: <span style="color:#ae81ff">somethingsomethingencrypt</span>
-
-<span style="color:#f92672">davical_dba_password</span>: <span style="color:#e6db74">&#34;somedavicalpassword!!!!&#34;</span>
-<span style="color:#f92672">davical_app_password</span>: <span style="color:#e6db74">&#34;someotherdavicalappPASSWD123123&#34;</span>
-<span style="color:#f92672">davical_tmp_admin_password</span>: <span style="color:#e6db74">&#34;sup3rc00ltempPASSWD&#34;</span>
-
-<span style="color:#75715e"># ip1</span>
-<span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">108.61.81.40</span>
-<span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">19f0:5:36b:5400:2ff:fe7f:a634</span>
-
-<span style="color:#75715e"># ip2</span>
-<span style="color:#f92672">secondary_nameservers</span>:
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">69.65.50.192</span> <span style="color:#75715e"># freedns2</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span> <span style="color:#75715e"># rest are cloudns</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
-        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.193</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
-        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:3::1</span>
-
-<span style="color:#75715e"># ip3</span>
-<span style="color:#f92672">public_nameservers</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">freedns2</span> <span style="color:#75715e"># freedns2</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">66.65.50.223</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">1850</span>:<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">800</span>::<span style="color:#ae81ff">6b</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns31</span> <span style="color:#75715e"># rest are cloudns</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns32</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns33</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns34</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns31</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1 </span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns32</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1 </span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns33</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns34</span>
-          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
-          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47 </span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">mail.aisha.cc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">admin</span>: <span style="color:#ae81ff">aisha</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">domains</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">aisha.cc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">epsilonknot.xyz</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">bsd.ac</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">nsd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enable_nsd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">username_delimiter</span>: <span style="color:#e6db74">&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enable_spamd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rspamd_enable_pretrain</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">private_interface</span>: <span style="color:#ae81ff">wg0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enable_extras</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">extras_not_home</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">extras_interface</span>: <span style="color:#ae81ff">wg0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">extras_ip</span>: <span style="color:#ae81ff">10.7.0.3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># needed as second server is a -current server</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># which has a newer version of php set as default</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">php_pkg_version</span>: <span style="color:#ae81ff">7.3.22</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pgsql_password_roundcube</span>: <span style="color:#ae81ff">prollySOMEpassword</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rc_encryption_key</span>: <span style="color:#ae81ff">somethingsomethingencrypt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">davical_dba_password</span>: <span style="color:#e6db74">&#34;somedavicalpassword!!!!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">davical_app_password</span>: <span style="color:#e6db74">&#34;someotherdavicalappPASSWD123123&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">davical_tmp_admin_password</span>: <span style="color:#e6db74">&#34;sup3rc00ltempPASSWD&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ip1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">108.61.81.40</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">19f0:5:36b:5400:2ff:fe7f:a634</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ip2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">secondary_nameservers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">69.65.50.192</span> <span style="color:#75715e"># freedns2</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span> <span style="color:#75715e"># rest are cloudns</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.193</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:3::1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ip3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">public_nameservers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">freedns2</span> <span style="color:#75715e"># freedns2</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">66.65.50.223</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2001</span>:<span style="color:#ae81ff">1850</span>:<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">800</span>::<span style="color:#ae81ff">6b</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns31</span> <span style="color:#75715e"># rest are cloudns</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.96.66</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::1:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns32</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.97.66</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::2:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns33</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.98.66</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::3:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pns34</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.136.99.66</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a06:fb00:1::4:66</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns31</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">109.201.133.111</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a00:1768:1001:9::31:1 </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns32</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">209.58.140.85</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2605</span>:<span style="color:#ae81ff">fe80:2100:a013:7::1 </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns33</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">54.36.26.145</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ns34</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv4</span>: <span style="color:#ae81ff">185.206.180.104</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ipv6</span>: <span style="color:#ae81ff">2a0b:1640:1:1:1:1:8ec:5a47 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="inventory">Set up the inventory</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75715e"># this is a -current server</span>
-<span style="color:#66d9ef">[extraserver]</span>
-<span style="color:#a6e22e">extra ansible_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">10.7.0.3 ansible_python_interpreter=/usr/local/bin/python3.9</span>
-
-<span style="color:#66d9ef">[mainserver]</span>
-<span style="color:#a6e22e">main ansible_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">10.7.0.1 ansible_python_interpreter=/usr/local/bin/python3.8</span>
-
-<span style="color:#66d9ef">[global:children]</span>
-<span style="color:#a6e22e">extraserver</span>
-<span style="color:#a6e22e">mainserver</span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#75715e"># this is a -current server</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[extraserver]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">extra ansible_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">10.7.0.3 ansible_python_interpreter=/usr/local/bin/python3.9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[mainserver]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main ansible_host</span><span style="color:#f92672">=</span><span style="color:#e6db74">10.7.0.1 ansible_python_interpreter=/usr/local/bin/python3.8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[global:children]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">extraserver</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mainserver</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="roles">Execute the playbook roles</h2>
@@ -1019,19 +1019,19 @@ The only catch here is that the installation is going to be on two separate serv
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1642268189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1642268189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1642268189"></script>
-    <script src="/js/jquery.sticky.js?1642268189"></script>
-    <script src="/js/featherlight.min.js?1642268189"></script>
-    <script src="/js/highlight.pack.js?1642268189"></script>
+    <script src="/js/clipboard.min.js?1653774508"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653774508"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1653774508"></script>
+    <script src="/js/jquery.sticky.js?1653774508"></script>
+    <script src="/js/featherlight.min.js?1653774508"></script>
+    <script src="/js/highlight.pack.js?1653774508"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1642268189"></script>
-    <script src="/js/learn.js?1642268189"></script>
-    <script src="/js/hugo-learn.js?1642268189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1653774508"></script>
+    <script src="/js/learn.js?1653774508"></script>
+    <script src="/js/hugo-learn.js?1653774508"></script>
     
         
-            <script src="/mermaid/mermaid.js?1642268189"></script>
+            <script src="/mermaid/mermaid.js?1653774508"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

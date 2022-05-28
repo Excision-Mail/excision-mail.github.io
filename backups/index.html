@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.91.0" />
+    <meta name="generator" content="Hugo 0.93.3" />
     <meta name="description" content="">
 
 
@@ -12,22 +12,22 @@
     <title>System Backups :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1642268189" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1642268189" rel="stylesheet">
-    <link href="/css/hybrid.css?1642268189" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1642268189" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1642268189" rel="stylesheet">
-    <link href="/css/auto-complete.css?1642268189" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1642268189" rel="stylesheet">
-    <link href="/css/theme.css?1642268189" rel="stylesheet">
-    <link href="/css/tabs.css?1642268189" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1642268189" rel="stylesheet">
+    <link href="/css/nucleus.css?1653774508" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653774508" rel="stylesheet">
+    <link href="/css/hybrid.css?1653774508" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653774508" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653774508" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653774508" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1653774508" rel="stylesheet">
+    <link href="/css/theme.css?1653774508" rel="stylesheet">
+    <link href="/css/tabs.css?1653774508" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1653774508" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1642268189" rel="stylesheet">
+    <link href="/css/theme-excision.css?1653774508" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1642268189"></script>
+    <script src="/js/jquery-3.3.1.min.js?1653774508"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1642268189"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1642268189"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1653774508"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1653774508"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1642268189"></script>
+<script type="text/javascript" src="/js/search.js?1653774508"></script>
 
     
   </div>
@@ -430,60 +430,60 @@
 
 	<h2 id="ifiles">Important non-replaceable files</h2>
 <p>These files are generated over time when using Excision and cannot be restored by the ansible scripts:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># excision config files folder</span>
-/etc/excision/
-
-<span style="color:#75715e"># excision-passwd home folder</span>
-<span style="color:#75715e">#  - contains ssh keys of users</span>
-/var/excision-passwd/
-
-<span style="color:#75715e"># excision user home folder</span>
-<span style="color:#75715e">#  - contains important gpg keys</span>
-/var/excision-home/
-
-<span style="color:#75715e"># published gpg keys of users</span>
-/var/www/openpgpkey/
-
-<span style="color:#75715e"># and of course, the whole email folder</span>
-/var/excision/
-</code></pre></div><h2 id="restic">Example backup using restic</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># excision config files folder</span>
+</span></span><span style="display:flex;"><span>/etc/excision/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># excision-passwd home folder</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  - contains ssh keys of users</span>
+</span></span><span style="display:flex;"><span>/var/excision-passwd/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># excision user home folder</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  - contains important gpg keys</span>
+</span></span><span style="display:flex;"><span>/var/excision-home/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># published gpg keys of users</span>
+</span></span><span style="display:flex;"><span>/var/www/openpgpkey/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># and of course, the whole email folder</span>
+</span></span><span style="display:flex;"><span>/var/excision/
+</span></span></code></pre></div><h2 id="restic">Example backup using restic</h2>
 <p>Here is a sample configuration using <a href="https://restic.net/">restic</a> which does a daily back up to a remote repo, using <code>/etc/daily.local</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># set up a restic repo somewhere which can be accessed</span>
-<span style="color:#75715e"># using your desired method</span>
-RESTIC_REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sftp:truenas:/mnt/Media/backups/mail.aisha.cc&#34;</span>
-env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--verbose backup <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--exclude-if-present<span style="color:#f92672">=</span>no_restic <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--exclude-file<span style="color:#f92672">=</span>/etc/restic.exclude <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--files-from<span style="color:#f92672">=</span>/etc/restic.include <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date +%c<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># list changes</span>
-PREV<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	snapshots --compact | tail -4 | head -1 | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
-LAST<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	snapshots --compact | tail -3 | head -1 | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
-
-RDIFF_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/rdiff.</span><span style="color:#e6db74">${</span>RANDOM<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	diff <span style="color:#e6db74">${</span>PREV<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>LAST<span style="color:#e6db74">}</span> &gt; <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
-
-NLINES<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>wc -l <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $NLINES -gt <span style="color:#ae81ff">108</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
-	head -n <span style="color:#ae81ff">100</span> <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
-	printf <span style="color:#e6db74">&#34;======= SNIP ======\n&#34;</span>
-	tail -n <span style="color:#ae81ff">8</span> <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
-<span style="color:#66d9ef">else</span>
-	cat <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
-<span style="color:#66d9ef">fi</span>
-rm -f <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
-unset RDIFF_FILE RESTIC_REPO NLINES
-</code></pre></div><p>The recommended <code>restic.include</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># set up a restic repo somewhere which can be accessed</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># using your desired method</span>
+</span></span><span style="display:flex;"><span>RESTIC_REPO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sftp:truenas:/mnt/Media/backups/mail.aisha.cc&#34;</span>
+</span></span><span style="display:flex;"><span>env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--verbose backup <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--exclude-if-present<span style="color:#f92672">=</span>no_restic <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--exclude-file<span style="color:#f92672">=</span>/etc/restic.exclude <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--files-from<span style="color:#f92672">=</span>/etc/restic.include <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--tag<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>date +%c<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list changes</span>
+</span></span><span style="display:flex;"><span>PREV<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	snapshots --compact | tail -4 | head -1 | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>LAST<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	snapshots --compact | tail -3 | head -1 | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>RDIFF_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/tmp/rdiff.</span><span style="color:#e6db74">${</span>RANDOM<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>env RESTIC_PASSWORD_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/.ssh/restic&#34;</span> HOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	/usr/local/bin/restic --repo <span style="color:#e6db74">${</span>RESTIC_REPO<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	diff <span style="color:#e6db74">${</span>PREV<span style="color:#e6db74">}</span> <span style="color:#e6db74">${</span>LAST<span style="color:#e6db74">}</span> &gt; <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NLINES<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>wc -l <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | awk <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $NLINES -gt <span style="color:#ae81ff">108</span> <span style="color:#f92672">]</span> ; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	head -n <span style="color:#ae81ff">100</span> <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>	printf <span style="color:#e6db74">&#34;======= SNIP ======\n&#34;</span>
+</span></span><span style="display:flex;"><span>	tail -n <span style="color:#ae81ff">8</span> <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>	cat <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>rm -f <span style="color:#e6db74">${</span>RDIFF_FILE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>unset RDIFF_FILE RESTIC_REPO NLINES
+</span></span></code></pre></div><p>The recommended <code>restic.include</code> :</p>
 <pre tabindex="0"><code>/bin
 /etc
 /home
@@ -717,19 +717,19 @@ unset RDIFF_FILE RESTIC_REPO NLINES
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1642268189"></script>
-    <script src="/js/perfect-scrollbar.min.js?1642268189"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1642268189"></script>
-    <script src="/js/jquery.sticky.js?1642268189"></script>
-    <script src="/js/featherlight.min.js?1642268189"></script>
-    <script src="/js/highlight.pack.js?1642268189"></script>
+    <script src="/js/clipboard.min.js?1653774508"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653774508"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1653774508"></script>
+    <script src="/js/jquery.sticky.js?1653774508"></script>
+    <script src="/js/featherlight.min.js?1653774508"></script>
+    <script src="/js/highlight.pack.js?1653774508"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1642268189"></script>
-    <script src="/js/learn.js?1642268189"></script>
-    <script src="/js/hugo-learn.js?1642268189"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1653774508"></script>
+    <script src="/js/learn.js?1653774508"></script>
+    <script src="/js/hugo-learn.js?1653774508"></script>
     
         
-            <script src="/mermaid/mermaid.js?1642268189"></script>
+            <script src="/mermaid/mermaid.js?1653774508"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
