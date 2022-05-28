@@ -12,22 +12,22 @@
     <title>Installation overview :: Excision Mail @ bsd.ac</title>
 
     
-    <link href="/css/nucleus.css?1653774739" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653774739" rel="stylesheet">
-    <link href="/css/hybrid.css?1653774739" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653774739" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653774739" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653774739" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1653774739" rel="stylesheet">
-    <link href="/css/theme.css?1653774739" rel="stylesheet">
-    <link href="/css/tabs.css?1653774739" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1653774739" rel="stylesheet">
+    <link href="/css/nucleus.css?1653774984" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653774984" rel="stylesheet">
+    <link href="/css/hybrid.css?1653774984" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653774984" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653774984" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653774984" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1653774984" rel="stylesheet">
+    <link href="/css/theme.css?1653774984" rel="stylesheet">
+    <link href="/css/tabs.css?1653774984" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1653774984" rel="stylesheet">
     
-    <link href="/css/theme-excision.css?1653774739" rel="stylesheet">
+    <link href="/css/theme-excision.css?1653774984" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1653774739"></script>
+    <script src="/js/jquery-3.3.1.min.js?1653774984"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1653774739"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1653774739"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1653774984"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1653774984"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1653774739"></script>
+<script type="text/javascript" src="/js/search.js?1653774984"></script>
 
     
   </div>
@@ -612,20 +612,32 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ansible-playbook site-preinstall.yml
 </span></span></code></pre></div><p>This runs the following preliminary roles (in order) for a basic setup:</p>
 <ul>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/pre-excision">pre-excision</a>:
-<ul>
-<li>Installs the needed packages, custom scripts and creates configuration directories.</li>
-<li>Sets up system users and groups with minimal permissions.</li>
-</ul>
-</li>
 <li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/base">base</a>:
 <ul>
-<li>Set up logging, cron jobs and firewall.</li>
+<li>Set up logging, login and cron jobs.</li>
+<li>Deploys <code>excision</code> commands</li>
+<li>Sets up <a href="https://datatracker.ietf.org/doc/html/rfc8461">MTA STS</a>, <a href="https://wiki.gnupg.org/WKS">OpenPGP Web Key Service</a> and client autodiscovery infrastructure</li>
 </ul>
 </li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/nsd">nsd</a> (optional, highly recommended):
+<li><a href="https://www.openbsd.org/faq/pf/">pf</a>
 <ul>
-<li>Configure the DNS for all domains with nsd enabled.</li>
+<li>Sets up basic <a href="https://man.openbsd.org/pf.conf.5">pf(5)</a> firewall rules</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/ansible-syslog">syslog</a>
+<ul>
+<li>Configures <a href="https://man.openbsd.org/syslogd.8">syslogd(8)</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/develop/roles/knot">knot</a> (optional, highly recommended)
+<ul>
+<li>Sets up <a href="https://www.knot-dns.cz/">knot DNS</a> for all domains with <code>dns</code> option enabled and configures an authoritative nameserver for <a href="../guides/secondary/#stealth-master">Stealth master</a> setup</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/develop/roles/zones">zones</a> (optional, highly recommended)
+<ul>
+<li>Generate DNS zone files for knot</li>
+<li>Generates DKIM certificates</li>
 </ul>
 </li>
 </ul>
@@ -633,31 +645,72 @@
 <div class="notices info" ><p>It will take about 10-15 minutes after running the <strong>site-preinstall</strong> role for the DNS changes to be in effect. Running the <strong>site-install</strong> role too soon may cause it to abort as Lets Encrypt may not be able to find the websites.</p>
 </div>
 
+<p>If you skipped the setup and configuration of <a href="https://github.com/Excision-Mail/Excision-Mail/tree/develop/roles/knot">knot</a>, you should now follow the <a href="../guides/manualdns/">Manual DNS Setup</a> guide to create the DNS records in your provider&rsquo;s interface. For DKIM keys, login to the mailserver and create DKIM keys manually with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ excision ensure-dkim
+</span></span></code></pre></div><p>Add the TXT records <code>excisionRSA._domainkey</code> (for outgoing mails signed by <code>rspamd</code>) and <code>davRSA._domainkey</code> (optional, for outgoing scheduling requests by <code>davical</code>) with the values shown in the above command&rsquo;s output.</p>
 <h2 id="install">Execute site-install playbook</h2>
 <p>The buld of the work is done in the <code>site-install.yml</code> playbook:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ansible-playbook site-install.yml
 </span></span></code></pre></div><p>The following roles are run (in order):</p>
 <ul>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/nginx_core">nginx_core</a>:
+<li><a href="https://github.com/Excision-Mail/ansible-nginx">nginx_core</a>
 <ul>
-<li>Sets up the <a href="https://">nginx</a> configuration to ensure acme server for all domains and subdomains.</li>
+<li>Installs <a href="https://www.nginx.com/">nginx</a> and configures basic webserver settings</li>
+<li>Web server for all domains and subdomains</li>
 </ul>
 </li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/acme">acme</a>:
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/develop/roles/acme">acme</a>:
 <ul>
 <li>Creates the <em>SSL</em> certificates with <a href="https://man.openbsd.org/man1/acme-client.1">acme-client(1)</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/develop/roles/nginx_extra_sites">nginx_main_sites</a>
+<ul>
+<li>Configures nginx to serve ACME challenges, <a href="https://datatracker.ietf.org/doc/html/rfc8461">MTA STS</a> information, <a href="https://wiki.gnupg.org/WKS">OpenPGP Web Key Service</a> and client autodiscovery.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/ansible-openldap">openldap</a> (work in progress)
+<ul>
+<li>Sets up LDAP for all services to bind against (support in OpenSMTPD pending)</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/spamd">spamd</a> (optional):
+<ul>
+<li>Sets up grey listing and tarpitting for spam protection.</li>
+</ul>
+</li>
+<li><a href="https://github.com/Excision-Mail/ansible-redis">redis</a>
+<ul>
+<li>Sets up redis for use in rspamd</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Update and enrich installation guide</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/clamav">clamav</a> (optional):
+<ul>
+<li>Sets up an antivirus which scans all attachments and emails.</li>
+<li><strong>WARNING</strong>: this is quite heavy and may cripple smaller servers.</li>
 </ul>
 </li>
 <li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/rspamd">rspamd</a>:
 <ul>
 <li>Gives a <em>lot</em> of spam protection setup techniques.</li>
 <li>Enables DKIM signing for outgoing mails.</li>
-</ul>
-</li>
-<li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/clamav">clamav</a> (optional):
-<ul>
-<li>Sets up an antivirus which scans all attachments and emails.</li>
-<li><strong>WARNING</strong>: this is quite heavy and may cripple smaller servers.</li>
 </ul>
 </li>
 <li><a href="https://github.com/Excision-Mail/Excision-Mail/tree/master/roles/smtpd">smtpd</a>:
@@ -903,19 +956,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1653774739"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653774739"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1653774739"></script>
-    <script src="/js/jquery.sticky.js?1653774739"></script>
-    <script src="/js/featherlight.min.js?1653774739"></script>
-    <script src="/js/highlight.pack.js?1653774739"></script>
+    <script src="/js/clipboard.min.js?1653774984"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653774984"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1653774984"></script>
+    <script src="/js/jquery.sticky.js?1653774984"></script>
+    <script src="/js/featherlight.min.js?1653774984"></script>
+    <script src="/js/highlight.pack.js?1653774984"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1653774739"></script>
-    <script src="/js/learn.js?1653774739"></script>
-    <script src="/js/hugo-learn.js?1653774739"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1653774984"></script>
+    <script src="/js/learn.js?1653774984"></script>
+    <script src="/js/hugo-learn.js?1653774984"></script>
     
         
-            <script src="/mermaid/mermaid.js?1653774739"></script>
+            <script src="/mermaid/mermaid.js?1653774984"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
